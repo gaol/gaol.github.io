@@ -8,5 +8,4 @@ fi
 echo -e "Bind interface: $iface"
 ipadd=$(ifconfig $iface|grep "inet "|tr -s " "|cut -d " " -f3)
 echo -e "IP Address: $ipadd"
-cd /vagrant/
 jekyll serve -H $ipadd
