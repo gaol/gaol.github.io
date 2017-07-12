@@ -1,0 +1,10 @@
+---
+layout: default
+title: "文章分类"
+---
+<div>类别: {{ page.category }}</div>
+<div class="list-group">
+  {% for post in site.categories[page.category] %}
+      <a class="list-group-item list-group-item-success" href="{{ post.url }}">{{ post.title }} &nbsp;&nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;&nbsp; {{ post.date }}</a>
+  {% endfor %}                            
+</div>

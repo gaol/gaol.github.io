@@ -18,6 +18,6 @@ sudo make install
 
 sudo /usr/local/bin/ruby-install --system ruby 2.4.1
 echo -e "Install jekyll gems"
-sudo /usr/local/bin/gem install jekyll bundler jekyll-coffeescript jekyll-paginate jekyll-mentions jekyll-theme-cayman jekyll-feed jekyll-redirect-from jemoji jekyll-sitemap
+sudo /usr/local/bin/gem install jekyll bundler jekyll-coffeescript jekyll-paginate jekyll-mentions jekyll-theme-cayman jekyll-feed jekyll-redirect-from jemoji jekyll-sitemap jekyll-categories
 
 
