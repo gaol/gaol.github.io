@@ -1,5 +1,10 @@
 #!/bin/bash
 
+git checkout master
+rm -rf _site
+git rm -r *
+git commit -m "clean master"
+
 git checkout source
 
 rm -rf _site
