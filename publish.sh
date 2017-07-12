@@ -10,6 +10,7 @@ git checkout master
 
 cp -r _site/* .
 
+git add *
 git commit -a -m "Publish articles"
 
 read -p "Are you sure to push to remote git repository ?[y/n] " -n 1 -r
