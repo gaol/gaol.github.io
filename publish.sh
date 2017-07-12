@@ -18,3 +18,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     git push origin master
 fi
+echo -e "Checkout back to source branch"
+git checkout source
