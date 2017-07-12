@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="ihomeland.org/feed.xml" rel="self" type="application/atom+xml" /><link href="ihomeland.org/" rel="alternate" type="text/html" /><updated>2017-07-12T13:02:41+08:00</updated><id>ihomeland.org/</id><title type="html">书山有路勤为径，学海无涯苦作舟</title><subtitle>理无专在, 学无止境
+</subtitle><entry><title type="html">Docker Servers Lab 介绍</title><link href="ihomeland.org/docker/servers-lab" rel="alternate" type="text/html" title="Docker Servers Lab 介绍" /><published>2017-07-12T12:02:00+08:00</published><updated>2017-07-12T12:02:00+08:00</updated><id>ihomeland.org/docker/docker-servers-lab</id><content type="html" xml:base="ihomeland.org/docker/servers-lab">&lt;p&gt;&lt;a href=&quot;https://github.com/gaol/servers-lab&quot;&gt;Servers Lab&lt;/a&gt; 提供了一些预先配置好的常用的服务器，比如： OpenLDAP, MariaDB(MySQL) 等。&lt;/p&gt;
+
+&lt;p&gt;这些服务器运行在 docker container 里，只需要在自己的机器上运行：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;docker pull aoingl/servers-lab:latest
+docker run -ti --name servers-lab -p 389:389 -p 636:636 -p 3306:3306 aoingl/servers-lab:latest /bin/bash
+start-ldap.sh &lt;span class=&quot;c&quot;&gt;# 启动 LDAP 服务&lt;/span&gt;
+start-mysql.sh &lt;span class=&quot;c&quot;&gt;# 启动 MySQL 服务&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后就可以在本机(host)上访问服务了：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ldapsearch -LLL -h 172.17.0.2 -D &lt;span class=&quot;s2&quot;&gt;&quot;uid=jduke,ou=Users,dc=jboss,dc=org&quot;&lt;/span&gt; -w theduke -b &lt;span class=&quot;s2&quot;&gt;&quot;dc=jboss,dc=org&quot;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;(cn=Admin)&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;mysql -h 172.17.0.2 -u testUser -p testDB
+Enter password: &lt;span class=&quot;c&quot;&gt;#&amp;lt; here input testPass&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;我会不断的更新 &lt;a href=&quot;https://github.com/gaol/servers-lab&quot;&gt;Servers Lab&lt;/a&gt;, 可以在 docker container 里运行更多的利于测试和调试的环境&lt;/p&gt;</content><author><name></name></author><summary type="html">Servers Lab 提供了一些预先配置好的常用的服务器，比如： OpenLDAP, MariaDB(MySQL) 等。 这些服务器运行在 docker container 里，只需要在自己的机器上运行： docker pull aoingl/servers-lab:latest docker run -ti --name servers-lab -p 389:389 -p 636:636 -p 3306:3306 aoingl/servers-lab:latest /bin/bash start-ldap.sh # 启动 LDAP 服务 start-mysql.sh # 启动 MySQL 服务 然后就可以在本机(host)上访问服务了： $ ldapsearch -LLL -h 172.17.0.2 -D &quot;uid=jduke,ou=Users,dc=jboss,dc=org&quot; -w theduke -b &quot;dc=jboss,dc=org&quot; &quot;(cn=Admin)&quot; $ mysql -h 172.17.0.2 -u testUser -p testDB Enter password: #&amp;lt; here input testPass 我会不断的更新 Servers Lab, 可以在 docker container 里运行更多的利于测试和调试的环境</summary></entry></feed>
