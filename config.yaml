@@ -5,6 +5,9 @@ canonifyurls: true
 languagecode: "zh-cn"
 defaultcontentlanguage: "zh-cn"
 defaultContentLanguageInSubdir: true
+avatarurl: "images/avatar.svg"
+#gravatar: "aoingl@gmail.com"
+
 pygmentsstyle: "b2"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
@@ -15,7 +18,7 @@ params:
   #avatarurl: "images/avatar.svg"
   gravatar: "aoingl@gmail.com"
   info: "认知学生"
-  description: "My Hugo Site"
+  description: "my site"
   keywords: "blog,developer,personal"
   footercontent: "Enter a text here."
   colorscheme: auto
@@ -44,13 +47,16 @@ languages:
     title: "认知世界"
     contentDir: "content/zh-cn"
     weight: 1
+    info: "认知学生"
+    description: "我的博客网站"
+    keywords: "博客,开发,personal"
     menu:
       main:
         - name: "博客"
-          url: "/zh-cn/blog"
+          url: "/zh-cn/posts"
           weight: 1
 
-        - name: "关于我"
+        - name: "关于"
           url: "/zh-cn/about"
           weight: 2
   en:
@@ -58,18 +64,18 @@ languages:
     contentDir: "content/en"
     title: "Know the world"
     weight: 2
+    info: "know them"
+    description: "my site"
+    keywords: "blog,developer,personal"
     menu:
       main:
         - name: "Blog"
-          url: "/en/blog"
+          url: "/en/posts"
           weight: 1
 
-        - name: "About me"
+        - name: "About"
           url: "/en/about"
           weight: 2
-
-
-
 
 taxonomies:
   category: "categories"
