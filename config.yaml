@@ -1,0 +1,77 @@
+baseURL: "http://example.org/"
+theme: "hugo-coder"
+paginate: 20
+canonifyurls: true
+languagecode: "zh-cn"
+defaultcontentlanguage: "zh-cn"
+defaultContentLanguageInSubdir: true
+pygmentsstyle: "b2"
+pygmentscodefences: true
+pygmentscodefencesguesssyntax: true
+
+params:
+  author: "Lin Gao"
+  email: "aoingl@gmail.com"
+  #avatarurl: "images/avatar.svg"
+  gravatar: "aoingl@gmail.com"
+  info: "认知学生"
+  description: "My Hugo Site"
+  keywords: "blog,developer,personal"
+  footercontent: "Enter a text here."
+  colorscheme: auto
+  hidecredits: false
+  hidecopyright: false
+  math: true
+  custom_css: ["css/base16.dark.css"]
+  favicon_32: "/img/favicon-32x32.png"
+  favicon_16: "/img/favicon-16x16.png"
+
+  social:
+    - name: "Github"
+      icon: "fab fa-github"
+      weight: 1
+      url: "https://github.com/gaol/"
+      target: "_blank"
+    - name: "Weibo"
+      icon: "fab fa-weibo"
+      weight: 2
+      url: "https://weibo.com/aoingl"
+      target: "_blank"
+
+languages:
+  zh-cn:
+    languagename: "中文"
+    title: "认知世界"
+    contentDir: "content/zh-cn"
+    weight: 1
+    menu:
+      main:
+        - name: "博客"
+          url: "/zh-cn/blog"
+          weight: 1
+
+        - name: "关于我"
+          url: "/zh-cn/about"
+          weight: 2
+  en:
+    languagename: "English"
+    contentDir: "content/en"
+    title: "Know the world"
+    weight: 2
+    menu:
+      main:
+        - name: "Blog"
+          url: "/en/blog"
+          weight: 1
+
+        - name: "About me"
+          url: "/en/about"
+          weight: 2
+
+
+
+
+taxonomies:
+  category: "categories"
+  series: "series"
+  tags: "tags"
