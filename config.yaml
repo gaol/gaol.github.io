@@ -5,29 +5,21 @@ canonifyurls: true
 languagecode: "zh-cn"
 defaultcontentlanguage: "zh-cn"
 defaultContentLanguageInSubdir: true
-avatarurl: "images/avatar.svg"
-#gravatar: "aoingl@gmail.com"
 
 pygmentsstyle: "b2"
 pygmentscodefences: true
 pygmentscodefencesguesssyntax: true
 
 params:
-  author: "Lin Gao"
   email: "aoingl@gmail.com"
-  #avatarurl: "images/avatar.svg"
-  gravatar: "aoingl@gmail.com"
-  info: "认知学生"
-  description: "my site"
-  keywords: "blog,developer,personal"
-  footercontent: "Enter a text here."
+  footercontent: "Be a good man and enjoy the life!"
   colorscheme: auto
   hidecredits: false
   hidecopyright: false
   math: true
-  custom_css: ["css/base16.dark.css"]
-  favicon_32: "/img/favicon-32x32.png"
-  favicon_16: "/img/favicon-16x16.png"
+  custom_css: ["css/base16.dark.css", "css/prism.css", "css/main.css"]
+  favicon_32: "/images/favicon-32x32.png"
+  favicon_16: "/images/favicon-16x16.png"
 
   social:
     - name: "Github"
@@ -40,16 +32,23 @@ params:
       weight: 2
       url: "https://weibo.com/aoingl"
       target: "_blank"
+    - name: "Twitter"
+      icon: "fab fa-twitter"
+      weight: 3
+      url: "https://twitter.com/aoingl"
+      target: "_blank"
 
 languages:
   zh-cn:
+    author: "双木为琳"
     languagename: "中文"
-    title: "认知世界"
+    title: "Lin' 博客"
     contentDir: "content/zh-cn"
     weight: 1
-    info: "认知学生"
+    info: "奇妙的世界"
     description: "我的博客网站"
-    keywords: "博客,开发,personal"
+    keywords: "博客,开发,个人"
+    avatarurl: "images/avatar.svg"
     menu:
       main:
         - name: "博客"
@@ -60,13 +59,15 @@ languages:
           url: "/zh-cn/about"
           weight: 2
   en:
+    author: "Lin Gao"
     languagename: "English"
     contentDir: "content/en"
-    title: "Know the world"
+    title: "Lin's Blog"
+    gravatar: "aoingl@gmail.com"
     weight: 2
-    info: "know them"
-    description: "my site"
-    keywords: "blog,developer,personal"
+    info: "wonderful world"
+    description: "Lin's blog"
+    keywords: "blog, developer, personal"
     menu:
       main:
         - name: "Blog"

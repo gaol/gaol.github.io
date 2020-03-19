@@ -1,5 +1,5 @@
 ---
-title: "About Mw"
+title: ""
 date: 2020-03-17T15:21:13+08:00
 draft: true
 ---
@@ -8,4 +8,19 @@ Lin Gao
 v1.0, 2020-03-17: initial version
 
 
-== hello world
+== About Me
+
+
+* I am an open source software engineer
+* I work for Red Hat
+* I work on https://www.wildfly.org[WildFly] and its components.
+* I work on https://vertx.io[Vert.x] community mainly focus on https://github.com/vert-x3/vertx-mail-client[vertx-mail-client] component
+
+{empty} +
+{empty} +
+
+[quote, Lin Gao, Never give up]
+____
+Software is always full of magic, I want to be one of the best players.
+____
+
