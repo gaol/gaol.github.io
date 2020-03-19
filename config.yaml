@@ -1,4 +1,4 @@
-baseURL: "http://example.org/"
+baseURL: "https://ihomeland.org/"
 theme: "hugo-coder"
 paginate: 20
 canonifyurls: true
