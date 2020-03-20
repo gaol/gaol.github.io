@@ -24,7 +24,7 @@ rm -rf public/*
 
 echo "Generating site"
 
-./hugo
+./hugo.sh
 
 echo "Updating gh-pages branch"
 cd public && git add --all && git commit -m "Publishing to master branch for static website update" && git push origin master
