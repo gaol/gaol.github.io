@@ -29,11 +29,11 @@ jobs:
     - name: Deploy to master branch for user's repository
       uses: peaceiris/actions-gh-pages@v3
       with:
-        publish_branch: master
+        publish_branch: gh-pages
         publish_dir: public
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
       env:
         ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: master
+        PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./public
 
