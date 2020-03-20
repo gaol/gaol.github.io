@@ -1,1 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lin's Blog</title><link>https://ihomeland.cn/en/</link><description>Recent content on Lin's Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><atom:link href="https://ihomeland.cn/en/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lin&#39;s Blog</title>
+    <link>https://ihomeland.cn/en/</link>
+    <description>Recent content on Lin&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Tue, 17 Mar 2020 15:21:13 +0800</lastBuildDate>
+    
+	<atom:link href="https://ihomeland.cn/en/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://ihomeland.cn/en/about/</link>
+      <pubDate>Tue, 17 Mar 2020 15:21:13 +0800</pubDate>
+      
+      <guid>https://ihomeland.cn/en/about/</guid>
+      <description>About Me   I am an open source software engineer
+  I work for Red Hat
+  I work on WildFly and its components.
+  I work on Vert.x community mainly focus on vertx-mail-client component
+   
+  Software is always full of magic, I want to be one of the best players.
+  &amp;#8212; Lin Gao
+Never give up     </description>
+    </item>
+    
+  </channel>
+</rss>

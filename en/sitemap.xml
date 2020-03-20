@@ -1,1 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://ihomeland.cn/en/categories/</loc><xhtml:link rel="alternate" hreflang="zh-cn" href="https://ihomeland.cn/zh-cn/categories/"/><xhtml:link rel="alternate" hreflang="en" href="https://ihomeland.cn/en/categories/"/></url><url><loc>https://ihomeland.cn/en/</loc><xhtml:link rel="alternate" hreflang="zh-cn" href="https://ihomeland.cn/zh-cn/"/><xhtml:link rel="alternate" hreflang="en" href="https://ihomeland.cn/en/"/></url><url><loc>https://ihomeland.cn/en/series/</loc><xhtml:link rel="alternate" hreflang="zh-cn" href="https://ihomeland.cn/zh-cn/series/"/><xhtml:link rel="alternate" hreflang="en" href="https://ihomeland.cn/en/series/"/></url><url><loc>https://ihomeland.cn/en/tags/</loc><xhtml:link rel="alternate" hreflang="zh-cn" href="https://ihomeland.cn/zh-cn/tags/"/><xhtml:link rel="alternate" hreflang="en" href="https://ihomeland.cn/en/tags/"/></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ihomeland.cn/en/about/</loc>
+    <lastmod>2020-03-17T15:21:13+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/about/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/</loc>
+    <lastmod>2020-03-17T15:21:13+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/series/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/series/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/series/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/tags/"
+                />
+  </url>
+  
+</urlset>

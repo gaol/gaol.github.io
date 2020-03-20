@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="双木为琳">
+    <meta name="description" content="我的博客网站">
+    <meta name="keywords" content="博客,开发,个人">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 Raspberry Pi 配置 DLNA server"/>
+<meta name="twitter:description" content="家里有一款老版本的 Raspberry Pi, 已经闲置在布满灰尘的角落里多年。 今日忽然心血来潮，心想不如搭建一个的 DLNA server 以便用于视频，音乐，以及照片的分享。
+   什么是 DLNA 呢 DLNA 的全称为： Digital Living Network Alliance. 由 Sony 在 2003 年提出，旨在使得家庭网络中的设备可以共享媒体数据。
+ DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。
+ Server 端设备主要是用来存储，分享与发送媒体文件。本文中的描述会 把一台 Raspberry Pi 变身为一台 DLNA Server 设备。 一般， PC 通过安装 DLNA Server 软件就可以工作。 比如 Windows 系统里的 Media Player 就自带了 DLNA server 功能。 而 Linux 下，我们采用 minidlna
+ DLNA Client 端设备主要用来查看和播放媒体文件。 一般的智能电视，智能手机（非 Apple iPhone），智能音响等都集成了 DLNA client 的功能。"/>
+
+    <meta property="og:title" content="使用 Raspberry Pi 配置 DLNA server" />
+<meta property="og:description" content="家里有一款老版本的 Raspberry Pi, 已经闲置在布满灰尘的角落里多年。 今日忽然心血来潮，心想不如搭建一个的 DLNA server 以便用于视频，音乐，以及照片的分享。
+   什么是 DLNA 呢 DLNA 的全称为： Digital Living Network Alliance. 由 Sony 在 2003 年提出，旨在使得家庭网络中的设备可以共享媒体数据。
+ DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。
+ Server 端设备主要是用来存储，分享与发送媒体文件。本文中的描述会 把一台 Raspberry Pi 变身为一台 DLNA Server 设备。 一般， PC 通过安装 DLNA Server 软件就可以工作。 比如 Windows 系统里的 Media Player 就自带了 DLNA server 功能。 而 Linux 下，我们采用 minidlna
+ DLNA Client 端设备主要用来查看和播放媒体文件。 一般的智能电视，智能手机（非 Apple iPhone），智能音响等都集成了 DLNA client 的功能。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/" />
+<meta property="article:published_time" content="2020-03-17T17:12:06+08:00" />
+<meta property="article:modified_time" content="2020-03-17T17:12:06+08:00" /><meta property="og:site_name" content="Lin&#39; 博客" />
+
+
+    
+      <base href="https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/">
+    
+    <title>
+  使用 Raspberry Pi 配置 DLNA server · Lin&#39; 博客
+</title>
+
+    
+      <link rel="canonical" href="https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ihomeland.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ihomeland.cn/css/coder-dark.min.83a2010dac9f59f943b3004cd6c4f230507ad036da635d3621401d42ec4e2835.css" integrity="sha256-g6IBDayfWflDswBM1sTyMFB60DbaY102IUAdQuxOKDU=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/base16.dark.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/prism.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/main.css" />
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.67.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <div class="header">
+      <div class="banner">
+        
+        <img src="https://ihomeland.cn/images/avatar.svg"
+             alt="gravatar" class="headerImg">
+        
+        <a class="navigation-title" href="https://ihomeland.cn/zh-cn" style="padding-left: 10px;">
+          Lin&#39; 博客
+        </a>
+      </div>
+      <div class="headerRight">
+        <div class="menus">
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/posts">博客</a>
+            </li>
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/about">关于</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="navigation-item menu-separator">
+              <span>|</span>
+            </li>
+            
+            
+            <li class="navigation-item">
+              <a href="https://ihomeland.cn/en/">English</a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+        <div class="socials">
+          
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a href="https://github.com/gaol/" aria-label="Github"  target="_blank" >
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://weibo.com/aoingl" aria-label="Weibo"  target="_blank" >
+                <i class="fab fa-weibo" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://twitter.com/aoingl" aria-label="Twitter"  target="_blank" >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">使用 Raspberry Pi 配置 DLNA server</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-03-17T17:12:06&#43;08:00'>
+                March 17, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 分钟阅读时间
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>家里有一款老版本的 Raspberry Pi, 已经闲置在布满灰尘的角落里多年。 今日忽然心血来潮，心想不如搭建一个的
+DLNA server 以便用于视频，音乐，以及照片的分享。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_什么是_dlna_呢">什么是 DLNA 呢</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DLNA 的全称为： Digital Living Network Alliance. 由 Sony 在 2003 年提出，旨在使得家庭网络中的设备可以共享媒体数据。</p>
+</div>
+<div class="paragraph">
+<p>DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。</p>
+</div>
+<div class="paragraph">
+<p>Server 端设备主要是用来存储，分享与发送媒体文件。本文中的描述会
+把一台 Raspberry Pi 变身为一台 DLNA Server 设备。 一般， PC 通过安装 DLNA Server 软件就可以工作。
+比如 Windows 系统里的 Media Player 就自带了 DLNA server 功能。 而 Linux 下，我们采用 <code>minidlna</code></p>
+</div>
+<div class="paragraph">
+<p>DLNA Client 端设备主要用来查看和播放媒体文件。 一般的智能电视，智能手机（非 Apple iPhone），智能音响等都集成了 DLNA client 的功能。</p>
+</div>
+<div class="sect2">
+<h3 id="_媒体播放中的问题">媒体播放中的问题</h3>
+<div class="paragraph">
+<p>虽然这个设想很好，不能保证可以 100% 顺利工作。原因有很多，一种为 Client 端设备不支持媒体文件的格式，例如 mp4, Divx 等等。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_raspberrypi_的硬件和软件版本">RaspberryPi 的硬件和软件版本</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">硬件版本</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">cat</span> /proc/device-tree/model
+ Raspberry Pi Model B Rev 1</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">软件版本</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">cat</span> /etc/os-release
+ <span class="nv">PRETTY_NAME</span><span class="o">=</span><span class="s2">"Raspbian GNU/Linux 9 (stretch)"</span>
+ <span class="nv">NAME</span><span class="o">=</span><span class="s2">"Raspbian GNU/Linux"</span>
+ <span class="nv">VERSION_ID</span><span class="o">=</span><span class="s2">"9"</span>
+ <span class="nv">VERSION</span><span class="o">=</span><span class="s2">"9 (stretch)"</span>
+ <span class="nv">ID</span><span class="o">=</span>raspbian
+ <span class="nv">ID_LIKE</span><span class="o">=</span>debian
+ <span class="nv">HOME_URL</span><span class="o">=</span><span class="s2">"http://www.raspbian.org/"</span>
+ <span class="nv">SUPPORT_URL</span><span class="o">=</span><span class="s2">"http://www.raspbian.org/RaspbianForums"</span>
+ <span class="nv">BUG_REPORT_URL</span><span class="o">=</span><span class="s2">"http://www.raspbian.org/RaspbianBugs"</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_安装和配置">安装和配置</h2>
+<div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>选择安装的包： <code>minidlna</code></p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock">
+<div class="title">更新以及安装</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+ Get:1 http://raspbian.raspberrypi.org/raspbian stretch InRelease <span class="o">[</span>15.0 kB]
+ Get:2 http://archive.raspberrypi.org/debian stretch InRelease <span class="o">[</span>25.4 kB]
+ Get:3 http://raspbian.raspberrypi.org/raspbian stretch/main armhf Packages <span class="o">[</span>11.7 MB]
+ Get:4 http://archive.raspberrypi.org/debian stretch/main armhf Packages <span class="o">[</span>220 kB]
+ Get:5 http://archive.raspberrypi.org/debian stretch/ui armhf Packages <span class="o">[</span>45.0 kB]
+ Get:6 http://raspbian.raspberrypi.org/raspbian stretch/contrib armhf Packages <span class="o">[</span>56.9 kB]
+ Get:7 http://raspbian.raspberrypi.org/raspbian stretch/non-free armhf Packages <span class="o">[</span>95.5 kB]
+ Fetched 12.1 MB <span class="k">in </span>3min 32s <span class="o">(</span>57.1 kB/s<span class="o">)</span>
+ Reading package lists... Done
+
+ pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>minidlna
+ Reading package lists... Done
+ Building dependency tree
+ Reading state information... Done
+ The following packages were automatically installed and are no longer required:
+   kodi-bin libao-common libao4 libcec4 libmariadbclient18 libmicrohttpd12 libp8-platform2 libpcrecpp0v5 libpulse-mainloop-glib0
+   libshairplay0 libssh-4 libtinyxml2.6.2v5 mysql-common python-bluez python-imaging
+ Use <span class="s1">'sudo apt autoremove'</span> to remove them.
+ The following NEW packages will be installed:
+   minidlna
+ 0 upgraded, 1 newly installed, 0 to remove and 330 not upgraded.
+ Need to get 128 kB of archives.
+ After this operation, 362 kB of additional disk space will be used.
+ Get:1 http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian stretch/main armhf minidlna armhf 1.1.6+dfsg-1 <span class="o">[</span>128 kB]
+ Fetched 128 kB <span class="k">in </span>1s <span class="o">(</span>84.9 kB/s<span class="o">)</span>
+ Selecting previously unselected package minidlna.
+ <span class="o">(</span>Reading database ... 124950 files and directories currently installed.<span class="o">)</span>
+ Preparing to unpack .../minidlna_1.1.6+dfsg-1_armhf.deb ...
+ Unpacking minidlna <span class="o">(</span>1.1.6+dfsg-1<span class="o">)</span> ...
+ Processing triggers <span class="k">for </span>systemd <span class="o">(</span>232-25+deb9u2<span class="o">)</span> ...
+ Processing triggers <span class="k">for </span>man-db <span class="o">(</span>2.7.6.1-2<span class="o">)</span> ...
+ Setting up minidlna <span class="o">(</span>1.1.6+dfsg-1<span class="o">)</span> ...
+ Processing triggers <span class="k">for </span>systemd <span class="o">(</span>232-25+deb9u2<span class="o">)</span> ...</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">配置媒体文件目录以便共享</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> <span class="nb">sudo </span>vi /etc/minidlan.conf</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">更改以下几项</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> <span class="nv">media_dir</span><span class="o">=</span>A,/home/pi/Music      <span class="c"># A means audio, like music</span>
+ <span class="nv">media_dir</span><span class="o">=</span>P,/home/pi/Pictures   <span class="c"># P means pictures, photos, images</span>
+ <span class="nv">media_dir</span><span class="o">=</span>V,/home/pi/Videos     <span class="c"># V means videos</span>
+ <span class="nv">friendly_name</span><span class="o">=</span>RaspberryPi       <span class="c"># 设置自己喜欢的名字，以便出现在 dlna 客户端的设备列表中</span>
+ <span class="nv">inotify</span><span class="o">=</span><span class="nb">yes</span>                     <span class="c"># 让 dlna 客户端可以自动发现该设备</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">重启服务</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>systemctl restart minidlna
+ pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>systemctl force-reload minidlna
+ pi@raspberrypi:~ <span class="nv">$ </span><span class="nb">sudo </span>systemctl <span class="nb">enable </span>minidlna
+ minidlna.service is not a native service, redirecting to systemd-sysv-install.
+ Executing: /lib/systemd/systemd-sysv-install <span class="nb">enable </span>minidlna</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Be a good man and enjoy the life!</p>
+    
+    
+      
+        © 2020
+      
+       双木为琳 
+    
+    
+       · 
+      技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>

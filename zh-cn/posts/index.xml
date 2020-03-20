@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lin&#39; 博客</title>
-    <link>https://ihomeland.cn/zh-cn/</link>
-    <description>Recent content on Lin&#39; 博客</description>
+    <title>Posts on Lin&#39; 博客</title>
+    <link>https://ihomeland.cn/zh-cn/posts/</link>
+    <description>Recent content in Posts on Lin&#39; 博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 17 Mar 2020 15:21:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2020 17:12:06 +0800</lastBuildDate>
     
-	<atom:link href="https://ihomeland.cn/zh-cn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://ihomeland.cn/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,22 +22,6 @@
  DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。
  Server 端设备主要是用来存储，分享与发送媒体文件。本文中的描述会 把一台 Raspberry Pi 变身为一台 DLNA Server 设备。 一般， PC 通过安装 DLNA Server 软件就可以工作。 比如 Windows 系统里的 Media Player 就自带了 DLNA server 功能。 而 Linux 下，我们采用 minidlna
  DLNA Client 端设备主要用来查看和播放媒体文件。 一般的智能电视，智能手机（非 Apple iPhone），智能音响等都集成了 DLNA client 的功能。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://ihomeland.cn/zh-cn/about/</link>
-      <pubDate>Tue, 17 Mar 2020 15:21:13 +0800</pubDate>
-      
-      <guid>https://ihomeland.cn/zh-cn/about/</guid>
-      <description>关于我   我是开源软件工程师
-  我在 Red Hat 工作
-  我主要做 WildFly 还有 WildFly 的组件
-  我主要做 Vert.x, 目前主要负责 vertx-mail-client , 之后还会有其他模块。
-   
-  Software is always full of magic, I want to be one of the best players.
-  &amp;#8212; Lin Gao
-Never give up     </description>
     </item>
     
   </channel>
