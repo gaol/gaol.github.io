@@ -11,7 +11,7 @@ then
 fi
 
 echo "Deleting old publication"
-rm -rf public
+sudo rm -rf public
 mkdir public
 git worktree prune
 rm -rf .git/worktrees/public/
@@ -20,7 +20,7 @@ echo "Checking out master branch into public worktree directory"
 git worktree add -B master public origin/master
 
 echo "Removing existing files"
-rm -rf public/*
+sudo rm -rf public/*
 
 echo "Generating site"
 
