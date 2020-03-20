@@ -13,7 +13,7 @@ jobs:
         submodules: true
 
     - name: Install Ruby Dev
-      run: sudo apt-get install ruby-dev
+      run: sudo apt-get install ruby-dev ibus-libpinyin
 
     - name: Install AsciiDoctor plugins
       run: sudo gem install asciidoctor rouge
