@@ -1,7 +1,7 @@
 ---
 title: "使用 Raspberry Pi 配置 DLNA server"
 date: 2020-03-17T17:12:06+08:00
-draft: true
+draft: false
 ---
 = set up dlna server in raspberry pi
 Lin Gao <aoingl@gmail.com>
