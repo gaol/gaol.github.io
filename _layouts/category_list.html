@@ -1,9 +1,0 @@
----
-layout: default
----
-
-<ol class="list-unstyled">
-{% for category in site.categories %}
-    <li><a href="/categories/{{category | first}}">{{category | first | capitalize}}</a> &nbsp;<span class="badge">{{ category | last | size }}</span></li>
-{% endfor %}
-</ol>

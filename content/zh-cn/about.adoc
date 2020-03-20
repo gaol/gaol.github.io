@@ -1,0 +1,26 @@
+---
+title: ""
+date: 2020-03-17T15:21:13+08:00
+draft: true
+---
+= About
+Lin Gao
+v1.0, 2020-03-17: initial version
+
+
+== 关于我
+
+
+* 我是开源软件工程师
+* 我在 Red Hat 工作
+* 我主要做 https://www.wildfly.org[WildFly] 还有 WildFly 的组件
+* 我主要做 https://vertx.io[Vert.x], 目前主要负责 https://github.com/vert-x3/vertx-mail-client[vertx-mail-client] , 之后还会有其他模块。
+
+{empty} +
+{empty} +
+
+[quote, Lin Gao, Never give up]
+____
+Software is always full of magic, I want to be one of the best players.
+____
+

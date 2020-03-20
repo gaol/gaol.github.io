@@ -1,0 +1,125 @@
+---
+title: "使用 Raspberry Pi 配置 DLNA server"
+date: 2020-03-17T17:12:06+08:00
+draft: true
+---
+= set up dlna server in raspberry pi
+Lin Gao <aoingl@gmail.com>
+v1.0, 2020-03-19: initial version
+:source-highlighter: rouge
+:rouge-style: base16.dark
+:icons: font
+
+家里有一款老版本的 Raspberry Pi, 已经闲置在布满灰尘的角落里多年。 今日忽然心血来潮，心想不如搭建一个的
+DLNA server 以便用于视频，音乐，以及照片的分享。
+
+== 什么是 DLNA 呢
+
+DLNA 的全称为： Digital Living Network Alliance. 由 Sony 在 2003 年提出，旨在使得家庭网络中的设备可以共享媒体数据。
+
+DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。
+
+Server 端设备主要是用来存储，分享与发送媒体文件。本文中的描述会
+把一台 Raspberry Pi 变身为一台 DLNA Server 设备。 一般， PC 通过安装 DLNA Server 软件就可以工作。
+比如 Windows 系统里的 Media Player 就自带了 DLNA server 功能。 而 Linux 下，我们采用 `minidlna`
+
+DLNA Client 端设备主要用来查看和播放媒体文件。 一般的智能电视，智能手机（非 Apple iPhone），智能音响等都集成了 DLNA client 的功能。
+
+=== 媒体播放中的问题
+
+虽然这个设想很好，不能保证可以 100% 顺利工作。原因有很多，一种为 Client 端设备不支持媒体文件的格式，例如 mp4, Divx 等等。
+
+
+== RaspberryPi 的硬件和软件版本
+
+.硬件版本
+[source, shell, indent=1]
+----
+pi@raspberrypi:~ $ cat /proc/device-tree/model
+Raspberry Pi Model B Rev 1
+----
+
+.软件版本
+[source, shell, indent=1]
+----
+pi@raspberrypi:~ $ cat /etc/os-release
+PRETTY_NAME="Raspbian GNU/Linux 9 (stretch)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+----
+
+== 安装和配置
+
+> 选择安装的包： `minidlna`
+
+.更新以及安装
+[source, shell, indent=1]
+----
+pi@raspberrypi:~ $ sudo apt-get update
+Get:1 http://raspbian.raspberrypi.org/raspbian stretch InRelease [15.0 kB]
+Get:2 http://archive.raspberrypi.org/debian stretch InRelease [25.4 kB]
+Get:3 http://raspbian.raspberrypi.org/raspbian stretch/main armhf Packages [11.7 MB]
+Get:4 http://archive.raspberrypi.org/debian stretch/main armhf Packages [220 kB]
+Get:5 http://archive.raspberrypi.org/debian stretch/ui armhf Packages [45.0 kB]
+Get:6 http://raspbian.raspberrypi.org/raspbian stretch/contrib armhf Packages [56.9 kB]
+Get:7 http://raspbian.raspberrypi.org/raspbian stretch/non-free armhf Packages [95.5 kB]
+Fetched 12.1 MB in 3min 32s (57.1 kB/s)
+Reading package lists... Done
+
+pi@raspberrypi:~ $ sudo apt-get install minidlna
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  kodi-bin libao-common libao4 libcec4 libmariadbclient18 libmicrohttpd12 libp8-platform2 libpcrecpp0v5 libpulse-mainloop-glib0
+  libshairplay0 libssh-4 libtinyxml2.6.2v5 mysql-common python-bluez python-imaging
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  minidlna
+0 upgraded, 1 newly installed, 0 to remove and 330 not upgraded.
+Need to get 128 kB of archives.
+After this operation, 362 kB of additional disk space will be used.
+Get:1 http://mirrors.tuna.tsinghua.edu.cn/raspbian/raspbian stretch/main armhf minidlna armhf 1.1.6+dfsg-1 [128 kB]
+Fetched 128 kB in 1s (84.9 kB/s)
+Selecting previously unselected package minidlna.
+(Reading database ... 124950 files and directories currently installed.)
+Preparing to unpack .../minidlna_1.1.6+dfsg-1_armhf.deb ...
+Unpacking minidlna (1.1.6+dfsg-1) ...
+Processing triggers for systemd (232-25+deb9u2) ...
+Processing triggers for man-db (2.7.6.1-2) ...
+Setting up minidlna (1.1.6+dfsg-1) ...
+Processing triggers for systemd (232-25+deb9u2) ...
+----
+
+
+.配置媒体文件目录以便共享
+[source, shell, indent=1]
+sudo vi /etc/minidlan.conf
+
+
+.更改以下几项
+[source, shell, indent=1]
+----
+media_dir=A,/home/pi/Music      # A means audio, like music
+media_dir=P,/home/pi/Pictures   # P means pictures, photos, images
+media_dir=V,/home/pi/Videos     # V means videos
+friendly_name=RaspberryPi       # 设置自己喜欢的名字，以便出现在 dlna 客户端的设备列表中
+inotify=yes                     # 让 dlna 客户端可以自动发现该设备
+----
+
+
+.重启服务
+[source, shell, indent=1]
+----
+pi@raspberrypi:~ $ sudo systemctl restart minidlna
+pi@raspberrypi:~ $ sudo systemctl force-reload minidlna
+pi@raspberrypi:~ $ sudo systemctl enable minidlna
+minidlna.service is not a native service, redirecting to systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable minidlna
+----

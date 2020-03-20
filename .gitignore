@@ -1,2 +1,4 @@
-_site/
-.vagrant/
+public
+output
+resources/_gen
+

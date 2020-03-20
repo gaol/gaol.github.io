@@ -1,0 +1,9 @@
+---
+title: "{{ replace .Name "-" " " | title }}"
+date: {{ .Date }}
+draft: true
+---
+= {{ replace .Name "-" " " | title }}
+{{ .Site.Params.author }} <{{ .Site.Params.email }}>
+v1.0, {{ dateFormat "2006-01-02" .Date }}: initial version
+
