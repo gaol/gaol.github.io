@@ -13,10 +13,10 @@ jobs:
         submodules: true
 
     - name: Install Ruby Dev
-      run: sudo apt-get install ruby-dev libxml2-dev graphviz
+      run: sudo apt-get install ruby-dev
 
     - name: Install AsciiDoctor plugins
-      run: sudo gem install asciidoctor rouge asciidoctor-diagram asciimath
+      run: sudo gem install asciidoctor rouge
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
