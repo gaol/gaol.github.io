@@ -16,9 +16,8 @@ jobs:
       run: sudo apt-get install ruby-dev libxml2-dev graphviz inotify-tools
 
     - name: Install AsciiDoctor plugins
-      run: sudo gem install asciidoctor:2.0.10 asciidoctor-confluence:0.0.2 asciidoctor-diagram:2.0.1 \
-           asciidoctor-mathematical:0.3.1 asciimath \
-           coderay tilt rouge haml slim thread_safe
+      run: sudo gem install asciidoctor:2.0.10 asciidoctor-confluence:0.0.2 asciidoctor-diagram:2.0.1 asciimath \
+           tilt rouge haml slim thread_safe
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
