@@ -13,7 +13,7 @@ jobs:
         submodules: true
 
     - name: Install Ruby Dev
-      run: sudo apt-get install ruby-dev libxml2-dev ruby-mathematical font-bakoma-ttf graphviz inotify-tools
+      run: sudo apt-get install ruby-dev libxml2-dev graphviz inotify-tools
 
     - name: Install AsciiDoctor plugins
       run: sudo gem install asciidoctor:2.0.10 asciidoctor-confluence:0.0.2 asciidoctor-diagram:2.0.1 \
