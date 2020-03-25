@@ -110,7 +110,7 @@ media_dir=A,/home/pi/Music      # A means audio, like music
 media_dir=P,/home/pi/Pictures   # P means pictures, photos, images
 media_dir=V,/home/pi/Videos     # V means videos
 friendly_name=RaspberryPi       # 设置自己喜欢的名字，以便出现在 dlna 客户端的设备列表中
-inotify=yes                     # 让 dlna 客户端可以自动发现该设备
+inotify=yes                     # 自动侦测媒体文件的变化
 ----
 
 
