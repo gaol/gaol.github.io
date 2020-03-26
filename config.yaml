@@ -1,4 +1,4 @@
-baseURL: "https://ihomeland.cn/"
+baseURL: "http://ihomeland.cn/"
 theme: "hugo-coder"
 paginate: 20
 canonifyurls: true
