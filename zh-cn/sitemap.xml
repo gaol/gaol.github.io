@@ -3,115 +3,115 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://ihomeland.cn/en/categories/"
+                href="https://ihomeland.cn/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://ihomeland.cn/zh-cn/categories/"
+                href="https://ihomeland.cn/zh-cn/categories/"
                 />
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/github/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/github/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/posts/github-authentication/</loc>
+    <loc>https://ihomeland.cn/zh-cn/posts/github-authentication/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/notes/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/posts/</loc>
+    <loc>https://ihomeland.cn/zh-cn/posts/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/totp/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/totp/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/dlna/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/dlna/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/categories/smarthome/</loc>
+    <loc>https://ihomeland.cn/zh-cn/categories/smarthome/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</loc>
+    <loc>https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/</loc>
+    <loc>https://ihomeland.cn/zh-cn/</loc>
     <lastmod>2020-03-17T15:21:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://ihomeland.cn/en/"
+                href="https://ihomeland.cn/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://ihomeland.cn/zh-cn/"
+                href="https://ihomeland.cn/zh-cn/"
                 />
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/about/</loc>
+    <loc>https://ihomeland.cn/zh-cn/about/</loc>
     <lastmod>2020-03-17T15:21:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://ihomeland.cn/en/about/"
+                href="https://ihomeland.cn/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://ihomeland.cn/zh-cn/about/"
+                href="https://ihomeland.cn/zh-cn/about/"
                 />
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/series/</loc>
+    <loc>https://ihomeland.cn/zh-cn/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://ihomeland.cn/en/series/"
+                href="https://ihomeland.cn/en/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://ihomeland.cn/zh-cn/series/"
+                href="https://ihomeland.cn/zh-cn/series/"
                 />
   </url>
   
   <url>
-    <loc>http://ihomeland.cn/zh-cn/tags/</loc>
+    <loc>https://ihomeland.cn/zh-cn/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://ihomeland.cn/en/tags/"
+                href="https://ihomeland.cn/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://ihomeland.cn/zh-cn/tags/"
+                href="https://ihomeland.cn/zh-cn/tags/"
                 />
   </url>
   
