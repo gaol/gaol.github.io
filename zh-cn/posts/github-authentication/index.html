@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="双木为琳">
+    <meta name="description" content="我的博客网站">
+    <meta name="keywords" content="博客,开发,个人">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Github two-factor 认证"/>
+<meta name="twitter:description" content="笔者认为 Two-Factor（2FA） 认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。 Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。
+ 当打开 Github 的 2FA, 客户端就不再支持通过 Username &#43; Password 的方式进行 pull 和 push.
+ 需要以下两种方法解决：
+   设置 git remote 为 ssh 方式， 如：
+   (base) [lgao@lgao gaol.github.io]$ git remote add fork git@github.com:gaol/gaol.github.io.git (base) [lgao@lgao gaol.github.io]$ git remote -v fork	git@github.com:gaol/gaol.github.io.git (fetch) fork	git@github.com:gaol/gaol.github.io.git (push) origin	https://github.com/gaol/gaol.github.io (fetch) origin	https://github.com/gaol/gaol.github.io (push)   然后在 push 的时候使用："/>
+
+    <meta property="og:title" content="Github two-factor 认证" />
+<meta property="og:description" content="笔者认为 Two-Factor（2FA） 认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。 Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。
+ 当打开 Github 的 2FA, 客户端就不再支持通过 Username &#43; Password 的方式进行 pull 和 push.
+ 需要以下两种方法解决：
+   设置 git remote 为 ssh 方式， 如：
+   (base) [lgao@lgao gaol.github.io]$ git remote add fork git@github.com:gaol/gaol.github.io.git (base) [lgao@lgao gaol.github.io]$ git remote -v fork	git@github.com:gaol/gaol.github.io.git (fetch) fork	git@github.com:gaol/gaol.github.io.git (push) origin	https://github.com/gaol/gaol.github.io (fetch) origin	https://github.com/gaol/gaol.github.io (push)   然后在 push 的时候使用：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ihomeland.cn/zh-cn/posts/github-authentication/" />
+<meta property="article:published_time" content="2020-03-25T17:12:06+08:00" />
+<meta property="article:modified_time" content="2020-03-25T17:12:06+08:00" /><meta property="og:site_name" content="Lin&#39; 博客" />
+
+
+    
+      <base href="https://ihomeland.cn/zh-cn/posts/github-authentication/">
+    
+    <title>
+  Github two-factor 认证 · Lin&#39; 博客
+</title>
+
+    
+      <link rel="canonical" href="https://ihomeland.cn/zh-cn/posts/github-authentication/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ihomeland.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ihomeland.cn/css/coder-dark.min.83a2010dac9f59f943b3004cd6c4f230507ad036da635d3621401d42ec4e2835.css" integrity="sha256-g6IBDayfWflDswBM1sTyMFB60DbaY102IUAdQuxOKDU=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/base16.dark.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/prism.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/main.css" />
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.67.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <div class="header">
+      <div class="banner">
+        
+        <img src="https://ihomeland.cn/images/avatar.svg"
+             alt="gravatar" class="headerImg">
+        
+        <a class="navigation-title" href="https://ihomeland.cn/zh-cn" style="padding-left: 10px;">
+          Lin&#39; 博客
+        </a>
+      </div>
+      <div class="headerRight">
+        <div class="menus">
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/posts">博客</a>
+            </li>
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/about">关于</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="navigation-item menu-separator">
+              <span>|</span>
+            </li>
+            
+            
+            <li class="navigation-item">
+              <a href="https://ihomeland.cn/en/">English</a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+        <div class="socials">
+          
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a href="https://github.com/gaol/" aria-label="Github"  target="_blank" >
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://weibo.com/aoingl" aria-label="Weibo"  target="_blank" >
+                <i class="fab fa-weibo" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://twitter.com/aoingl" aria-label="Twitter"  target="_blank" >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Github two-factor 认证</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-03-25T17:12:06&#43;08:00'>
+                March 25, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ihomeland.cn/zh-cn/categories/github/">github</a>
+      <span class="separator">•</span>
+    <a href="https://ihomeland.cn/zh-cn/categories/notes/">notes</a>
+      <span class="separator">•</span>
+    <a href="https://ihomeland.cn/zh-cn/categories/totp/">totp</a></div>
+
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div class="paragraph">
+<p>笔者认为 <a href="https://help.github.com/en/github/authenticating-to-github/about-two-factor-authentication">Two-Factor（2FA）</a>
+认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。
+Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://help.github.com/en/github/authenticating-to-github/configuring-two-factor-authentication">当打开 Github 的 2FA</a>,
+客户端就不再支持通过 <code>Username + Password</code> 的方式进行 <code>pull</code> 和 <code>push</code>.</p>
+</div>
+<div class="paragraph">
+<p>需要以下两种方法解决：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>设置 git remote 为 ssh 方式， 如：</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> <span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>lgao@lgao gaol.github.io]<span class="nv">$ </span>git remote add fork git@github.com:gaol/gaol.github.io.git
+ <span class="o">(</span>base<span class="o">)</span> <span class="o">[</span>lgao@lgao gaol.github.io]<span class="nv">$ </span>git remote <span class="nt">-v</span>
+ fork	git@github.com:gaol/gaol.github.io.git <span class="o">(</span>fetch<span class="o">)</span>
+ fork	git@github.com:gaol/gaol.github.io.git <span class="o">(</span>push<span class="o">)</span>
+ origin	https://github.com/gaol/gaol.github.io <span class="o">(</span>fetch<span class="o">)</span>
+ origin	https://github.com/gaol/gaol.github.io <span class="o">(</span>push<span class="o">)</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>然后在 push 的时候使用：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="shell"> git push fork master</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+当然，你需要提前设置 <a href="https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account">SSH Keys</a> 才能进行 push
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>设置 Github 的 access token</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">用户可以设置多个 access token</a>，
+每个 token 可以有不同的权限，比如：只能读取 public repository，或者可以写入 private repository 等</p>
+</div>
+<div class="paragraph">
+<p>之后在 <code>git push</code> 的时候就可以使用该 access token 进行 登录。</p>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Be a good man and enjoy the life!</p>
+    
+    
+      
+        © 2020
+      
+       双木为琳 
+    
+    
+       · 
+      技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
