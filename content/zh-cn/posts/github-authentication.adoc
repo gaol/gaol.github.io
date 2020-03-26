@@ -1,0 +1,55 @@
+---
+title: "Github two-factor 认证"
+date: 2020-03-25T17:12:06+08:00
+draft: false
+categories:
+  - github
+  - notes
+  - totp
+---
+= Github 2 factor 认证
+Lin Gao <aoingl@gmail.com>
+v1.0, 2020-03-25: initial version
+:source-highlighter: rouge
+:rouge-style: base16.dark
+:icons: font
+
+笔者认为 https://help.github.com/en/github/authenticating-to-github/about-two-factor-authentication[Two-Factor（2FA）]
+认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。
+Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。
+
+
+https://help.github.com/en/github/authenticating-to-github/configuring-two-factor-authentication[当打开 Github 的 2FA],
+客户端就不再支持通过 `Username + Password` 的方式进行 `pull` 和 `push`.
+
+需要以下两种方法解决：
+
+* 设置 git remote 为 ssh 方式， 如：
+
+[source, shell, indent=1]
+----
+(base) [lgao@lgao gaol.github.io]$ git remote add fork git@github.com:gaol/gaol.github.io.git
+(base) [lgao@lgao gaol.github.io]$ git remote -v
+fork	git@github.com:gaol/gaol.github.io.git (fetch)
+fork	git@github.com:gaol/gaol.github.io.git (push)
+origin	https://github.com/gaol/gaol.github.io (fetch)
+origin	https://github.com/gaol/gaol.github.io (push)
+----
+然后在 push 的时候使用：
+[source, shell, indent=1]
+----
+git push fork master
+----
+[IMPORTANT]
+当然，你需要提前设置 https://help.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account[SSH Keys] 才能进行 push
+
+* 设置 Github 的 access token
+
+https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line[用户可以设置多个 access token]，
+每个 token 可以有不同的权限，比如：只能读取 public repository，或者可以写入 private repository 等
+
+之后在 `git push` 的时候就可以使用该 access token 进行 登录。
+
+
+
+

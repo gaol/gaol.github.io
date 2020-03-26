@@ -1,0 +1,48 @@
+---
+title: "Using GitHub Actions to set up workflow"
+date: 2020-03-26T12:12:06+08:00
+draft: true
+categories:
+  - github
+---
+= Using GitHub Actions to set up workflow
+Lin Gao <aoingl@gmail.com>
+v1.0, 2020-03-26: initial version
+:source-highlighter: rouge
+:rouge-style: base16.dark
+:icons: font
+
+In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform.
+
+
+== What is github actions
+
+* normal actions (any language)
+* docker container actions
+
+> Define input and output from console with specific format
+
+=== what are hosted runners
+
+* a VM
+** what runners are VM?
+
+* a container
+** what runners are container?
+
+
+=== Matrix builds
+
+* save time to build and test across all major operating systems
+
+=== Any language
+
+* support all lanugages project
+
+=== Live logs
+
+* see the workflow in realtime to monitor failures with sepcific line number in CI/CD
+
+
+
+
