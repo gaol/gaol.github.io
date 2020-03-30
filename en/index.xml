@@ -18,8 +18,8 @@
       
       <guid>https://ihomeland.cn/en/posts/github-actions/</guid>
       <description>In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.
-   What is github action Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:
-   JavaScript action</description>
+ In srctest
+   What is github action Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:</description>
     </item>
     
     <item>
