@@ -3,6 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://ihomeland.cn/en/categories/</loc>
+    <lastmod>2020-03-26T12:12:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/categories/github/</loc>
+    <lastmod>2020-03-26T12:12:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/categories/github/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/categories/github/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/posts/</loc>
+    <lastmod>2020-03-26T12:12:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/en/posts/github-actions/</loc>
+    <lastmod>2020-03-26T12:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://ihomeland.cn/en/about/</loc>
     <lastmod>2020-03-17T15:21:13+08:00</lastmod>
     <xhtml:link
@@ -29,20 +79,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://ihomeland.cn/en/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://ihomeland.cn/en/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ihomeland.cn/en/categories/"
                 />
   </url>
   
