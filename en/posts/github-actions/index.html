@@ -11,22 +11,14 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Using GitHub Actions to set up workflow"/>
-<meta name="twitter:description" content="In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform.
-   What is github actions   normal actions (any language)
-  docker container actions
-    Define input and output from console with specific format
-   what are hosted runners   a VM
-  what runners are VM?
-     a container"/>
+<meta name="twitter:description" content="In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.
+   What is github action Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:
+   JavaScript action"/>
 
     <meta property="og:title" content="Using GitHub Actions to set up workflow" />
-<meta property="og:description" content="In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform.
-   What is github actions   normal actions (any language)
-  docker container actions
-    Define input and output from console with specific format
-   what are hosted runners   a VM
-  what runners are VM?
-     a container" />
+<meta property="og:description" content="In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.
+   What is github action Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:
+   JavaScript action" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ihomeland.cn/en/posts/github-actions/" />
 <meta property="article:published_time" content="2020-03-26T12:12:06+08:00" />
@@ -206,86 +198,43 @@
         <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform.</p>
+<p>In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_is_github_actions">What is github actions</h2>
+<h2 id="_what_is_github_action">What is github action</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JavaScript action</p>
+</li>
+<li>
+<p>docker container action</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All actions are executed in a <code>job</code> (as <code>step`s) which is defined in a `workflow</code>. Each <code>job</code> is executed on a <code>runner</code> which is actually a virtual machine(VM) comes from AZure cloud(in case of github hosted runners). All <code>job`s in the workflows are executed in parallel by default unless you define the `needs</code> to specify the dependency relationship between other jobs. A <code>job</code> contains at least one <code>step</code>, each <code>step</code> is either a command or a github action, they are executed in sequence in the definition order.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_define_workflow">How to define workflow</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>normal actions (any language)</p>
+<p>using a template</p>
 </li>
 <li>
-<p>docker container actions</p>
+<p>create the <code>.github/workflows/some-workflow-name.yml</code> file directly</p>
 </li>
 </ul>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Define input and output from console with specific format</p>
-</div>
-</blockquote>
-</div>
-<div class="sect2">
-<h3 id="_what_are_hosted_runners">what are hosted runners</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>a VM</p>
-<div class="ulist">
-<ul>
-<li>
-<p>what runners are VM?</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>a container</p>
-<div class="ulist">
-<ul>
-<li>
-<p>what runners are container?</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_matrix_builds">Matrix builds</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>save time to build and test across all major operating systems</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_any_language">Any language</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>support all lanugages project</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_live_logs">Live logs</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>see the workflow in realtime to monitor failures with sepcific line number in CI/CD</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
