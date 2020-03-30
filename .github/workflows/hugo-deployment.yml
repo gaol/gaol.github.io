@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - source   # for personal github pages, master branch is used for website, source branch can be used for the source.
+      - srctest
 
 jobs:
   deploy:

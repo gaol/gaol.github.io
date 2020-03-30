@@ -12,37 +12,20 @@ v1.0, 2020-03-26: initial version
 :rouge-style: base16.dark
 :icons: font
 
-In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform.
+In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.
 
+== What is github action
 
-== What is github actions
+Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:
 
-* normal actions (any language)
-* docker container actions
+* JavaScript action
+* docker container action
 
-> Define input and output from console with specific format
+All actions are executed in a `job` (as `step`s) which is defined in a `workflow`. Each `job` is executed on a `runner` which is actually a virtual machine(VM) comes from AZure cloud(in case of github hosted runners). All `job`s in the workflows are executed in parallel by default unless you define the `needs` to specify the dependency relationship between other jobs. A `job` contains at least one `step`, each `step` is either a command or a github action, they are executed in sequence in the definition order.
 
-=== what are hosted runners
+== How to define workflow
 
-* a VM
-** what runners are VM?
-
-* a container
-** what runners are container?
-
-
-=== Matrix builds
-
-* save time to build and test across all major operating systems
-
-=== Any language
-
-* support all lanugages project
-
-=== Live logs
-
-* see the workflow in realtime to monitor failures with sepcific line number in CI/CD
-
-
+* using a template
+* create the `.github/workflows/some-workflow-name.yml` file directly
 
 
