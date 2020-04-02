@@ -12,16 +12,56 @@ v1.0, 2020-03-26: initial version
 :rouge-style: base16.dark
 :icons: font
 
-In Software Development Lifecycle(SDL), we need a workflow to build, test, package and deliver our projects to a certain platform. Github Actions provides a solution to define that workflow in the repository itself by a yaml file.
+In software development life cycle(SDCL) , we normally need a workflow on how to build and test our codes, package the codes into a deployment, and deploy the deployment as applications. Github actions provides such a service so that we can define and execute our own workflows.
 
 == What is github action
 
-Github action is the smallest execution unit to compose a workflow. There are 2 types of github action according to how it is implemented:
+I think GitHub actions is actually a CI/CD service provieded by github, although they call it an API for cause and effect on Github. But the main use cases should be CI/CD anyway.
 
-* JavaScript action
-* docker container action
+In practice, all that you need to do is to define a workflow by creating a workflow file in the git repository directly. So you don't need to set up external environment, github actions will take care of the workflow execution.
 
-All actions are executed in a `job` (as `step`s) which is defined in a `workflow`. Each `job` is executed on a `runner` which is actually a virtual machine(VM) comes from AZure cloud(in case of github hosted runners). All `job`s in the workflows are executed in parallel by default unless you define the `needs` to specify the dependency relationship between other jobs. A `job` contains at least one `step`, each `step` is either a command or a github action, they are executed in sequence in the definition order.
+Each GitHub action is the smallest execution unit in the workflow, we normally call the action a step in the workflow. Multiple actions or commands compose the workflow.
+
+There are many reusable actions shared by the community in the github marketplace to make it easy to set up your own workflow. Like the checkout action to checkout the specific branch of the source codes, the setup action to set up specific version of JDK, the openshift action to deploy your deliverables into the openshift cluster. etc.   You also can develop your own action for your own purpose and share it to the community.
+
+=== What it does
+
+It enables you to create a custom workflow directly in the git repository. Define the CI/CD workflow directly in git repository staying tight with the code itself. It makes it easy to maintain between different versions or different branches. as we all know that the codes in different stages may require different CI set up
+
+The workflow execution is triggered by github events. we will discuss this later on. When the workflow is executed, we can watch the real-time logs, checking errors on each step, and checking the whole status of current workflow execution.
+
+If you need multiple set ups to run like testing the codes in both JDK 8 and JDK11, the matrix can handle that. If you need extra environment like database setup for your testing, you can use the job.services to start the database before all steps.
+
+== How does it work
+
+
+* Suppose we have one workflow defined already, it contains the following parts:
+
+  * the triggers
+  * and the jobs
+
+* Github monitors each event happened in the whole github, when an event occurs, it will check if there is a workflow defined for the associated git repository and branch. Once it finds, it will check further if the workflow is triggered or not.  (it may be a git post-commit hook to implement that)
+
+* Normally the workflow execution is triggered by the github events. like a git push, a pull_request, a new tag, etc. The trigger can also be a scheduler like cron jobs in linux, so that it will be executed reguarly
+
+   * When the workflow is triggered by the event, there will be the assoicated git commit id and git reference attached to the event. like in an event of push to a branch, the last commit id of that branch and the git reference to that branch will be attached to the event. Such information will also be available as environment variables in current context, so that the following jobs and the steps within the jobs have access to the specific version of the source code.
+
+  * Depends on what types of the events, assoicated branch in the event or the default branch of the git repository will be used for the source code to proceed. 
+     * Some events like the issues creation, github release, and scheduler, etc.
+     * Some events like push, tag will use the latest commit id of the pushed branch or tag for futher execution.
+     * Some events like pull_request, will have a special branch in the base repository based on the forked repository
+
+like: 'refs/remotes/pull/2/merge'
+
+* When the workflow is triggered, each job defined in the workflow is executed in github hosted virtual machines(it is also called runner) unless you define your own, like we just said, it provides the feedback of the workflow execution. It also secures the steps as well in case you need to access some sensitive data or modification to your git repository.
+
+* There can be multiple jobs defined in one workflow, they will be executed in parallel by default. Each job has multiple steps which are executed in sequence. each step of the job can be either a command or a github action.
+
+   * Command here is something that will be executed by the operating system's shell provided by the virtual machine. So when you set up the commands in the workflow, pay attention to which operatering system the runner has.
+   * The github action is a group of codes either written by JavaScript or a docker container.
+
+* Each time of the job execution uses a fresh instance of virtual machine. So what kinds of the virtual machines are they?
+
 
 == How to define workflow
 
