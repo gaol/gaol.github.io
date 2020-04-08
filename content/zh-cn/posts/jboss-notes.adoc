@@ -30,5 +30,37 @@ Unexpected character '=' (code 61); expected a semi-colon
 
 这是因为 `&` 要使用 `&amp;` 来 escapse，否则 xml 解析就会以为这是个 entity，尝试去解析。
 
+== 集群
+
+Wildfly 的集群可以使用 standalone，或者 domain 方式。 我比较倾向使用 standalone 的方式启动。
+
+[source, shell, indent=1]
+----
+bin/standalone.sh -c standalone-ha.xml
+----
+
+WildFly 使用 JGroups 建立集群。
+
+=== 指定集群的 Node 名称
+
+使用 `-Djboss.node.name=node1` 可以为集群的 wildfly 节点配置名称。
+
+[NOTE]
+注意要在整个集群中唯一。
+要使用 `-ha.xml` 配置。
+
+[source, shell, indent=1]
+----
+bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node1
+----
+
+
+== EJB
+
+从 JBoss AS 7 到 WildFly 8， 以及最近的 19。 EJB client 已有了很多版本和修改。作者打算开出一系列的文章从 JBoss AS 7（EAP 6） 到最新的 WildFly 19 的 EJB Client 的变化以及如何进行 remote ejb invocation。 届时会把连接更新在本文中。
+
+=== EJB lookup 
+
+* 使用 `ejb:` 进行 EJB lookup 意味着都是 `remote` 的 ejb。
 
 
