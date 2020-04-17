@@ -12,7 +12,7 @@ v1.0, 2020-03-26: initial version
 :rouge-style: base16.dark
 :icons: font
 
-In software development life cycle(SDCL) , we normally need a workflow on how to build and test our codes, package the codes into a deployment, and deploy the deployment as applications. Github actions provides such a service so that we can define and execute our own workflows.
+In software development life cycle(SDLC) , we normally need a workflow on how to build and test our codes, package the codes into a deployment, and deploy the deployment as applications. Github actions provides such a service so that we can define and execute our own workflows.
 
 == What is github action
 
