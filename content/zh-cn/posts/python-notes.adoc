@@ -23,6 +23,7 @@ v1.0, 2020-09-12: initial version
 
 * 从 https://www.anaconda.com/products/individual#linux[Anaconda 官网] 下载安装 Anaconda Individual Version.
 * 安装 Python 环境
+
 [source, java, indent=1]
 ----
 conda create --name python27 python=2.7
@@ -30,18 +31,21 @@ conda create --name python3 python=3.7
 ----
 
 * 激活你想使用的 Python 环境
+
 [source, java, indent=1]
 ----
 conda activate python27
 ----
 
 * 使用完毕后，关闭 Python 环境
+
 [source, java, indent=1]
 ----
 conda deactivate
 ----
 
 * 列出所有的环境
+
 [source, shell script, indent=1]
 ----
 (python27) [🎩 lgao@lgao gaol.github.io]$ conda info --envs
