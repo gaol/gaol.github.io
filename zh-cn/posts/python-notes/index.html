@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="双木为琳">
+    <meta name="description" content="我的博客网站">
+    <meta name="keywords" content="博客,开发,个人">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python Notes"/>
+<meta name="twitter:description" content="Table of Contents 配置 Python3 与 Python2.7 并存 使用 Anaconda 管理开发环境     本文列出一些 Python 相关的 notes，尽量不停的更新：
+   配置 Python3 与 Python2.7 并存 虽然 Python 已经到了 3 的时代， Python2.7 还是有很多的用户和类库。很多时候我们会需要用到不同版本的 Python。
+ 使用 Anaconda 管理开发环境   从 Anaconda 官网 下载安装 Anaconda Individual Version.
+  安装 Python 环境
+   conda create --name python27 python=2.7 conda create --name python3 python=3.7     激活你想使用的 Python 环境"/>
+
+    <meta property="og:title" content="Python Notes" />
+<meta property="og:description" content="Table of Contents 配置 Python3 与 Python2.7 并存 使用 Anaconda 管理开发环境     本文列出一些 Python 相关的 notes，尽量不停的更新：
+   配置 Python3 与 Python2.7 并存 虽然 Python 已经到了 3 的时代， Python2.7 还是有很多的用户和类库。很多时候我们会需要用到不同版本的 Python。
+ 使用 Anaconda 管理开发环境   从 Anaconda 官网 下载安装 Anaconda Individual Version.
+  安装 Python 环境
+   conda create --name python27 python=2.7 conda create --name python3 python=3.7     激活你想使用的 Python 环境" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ihomeland.cn/zh-cn/posts/python-notes/" />
+<meta property="article:published_time" content="2020-09-14T10:12:06+08:00" />
+<meta property="article:modified_time" content="2020-09-14T10:12:06+08:00" /><meta property="og:site_name" content="Lin&#39; 博客" />
+
+
+    
+      <base href="https://ihomeland.cn/zh-cn/posts/python-notes/">
+    
+    <title>
+  Python Notes · Lin&#39; 博客
+</title>
+
+    
+      <link rel="canonical" href="https://ihomeland.cn/zh-cn/posts/python-notes/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://ihomeland.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="https://ihomeland.cn/css/coder-dark.min.83a2010dac9f59f943b3004cd6c4f230507ad036da635d3621401d42ec4e2835.css" integrity="sha256-g6IBDayfWflDswBM1sTyMFB60DbaY102IUAdQuxOKDU=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/base16.dark.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/prism.css" />
+    
+      <link rel="stylesheet" href="https://ihomeland.cn/css/main.css" />
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.67.0" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-auto">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <div class="header">
+      <div class="banner">
+        
+        <img src="https://ihomeland.cn/images/avatar.svg"
+             alt="gravatar" class="headerImg">
+        
+        <a class="navigation-title" href="https://ihomeland.cn/zh-cn" style="padding-left: 10px;">
+          Lin&#39; 博客
+        </a>
+      </div>
+      <div class="headerRight">
+        <div class="menus">
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/posts">博客</a>
+            </li>
+            
+            <li class="navigation-item">
+              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/about">关于</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="navigation-item menu-separator">
+              <span>|</span>
+            </li>
+            
+            
+            <li class="navigation-item">
+              <a href="https://ihomeland.cn/en/">English</a>
+            </li>
+            
+            
+            
+          </ul>
+        </div>
+        <div class="socials">
+          
+          <ul class="navigation-list">
+            
+            
+            <li class="navigation-item">
+              <a href="https://github.com/gaol/" aria-label="Github"  target="_blank" >
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://weibo.com/aoingl" aria-label="Weibo"  target="_blank" >
+                <i class="fab fa-weibo" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+            
+            <li class="navigation-item">
+              <a href="https://twitter.com/aoingl" aria-label="Twitter"  target="_blank" >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+            
+            
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Python Notes</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-09-14T10:12:06&#43;08:00'>
+                September 14, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1 分钟阅读时间
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://ihomeland.cn/zh-cn/categories/notes/">notes</a>
+      <span class="separator">•</span>
+    <a href="https://ihomeland.cn/zh-cn/categories/python/">python</a>
+      <span class="separator">•</span>
+    <a href="https://ihomeland.cn/zh-cn/categories/conda/">conda</a></div>
+
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_配置_python3_与_python2_7_并存">配置 Python3 与 Python2.7 并存</a>
+<ul class="sectlevel2">
+<li><a href="#_使用_anaconda_管理开发环境">使用 Anaconda 管理开发环境</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>本文列出一些 Python 相关的 notes，尽量不停的更新：</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_配置_python3_与_python2_7_并存">配置 Python3 与 Python2.7 并存</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>虽然 Python 已经到了 3 的时代， Python2.7 还是有很多的用户和类库。很多时候我们会需要用到不同版本的 Python。</p>
+</div>
+<div class="sect2">
+<h3 id="_使用_anaconda_管理开发环境">使用 Anaconda 管理开发环境</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>从 <a href="https://www.anaconda.com/products/individual#linux">Anaconda 官网</a> 下载安装 Anaconda Individual Version.</p>
+</li>
+<li>
+<p>安装 Python 环境</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>conda create --name python27 python=2.7
+conda create --name python3 python=3.7</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>激活你想使用的 Python 环境</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>conda activate python27</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>使用完毕后，关闭 Python 环境</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>conda deactivate</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>列出所有的环境</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(python27) [🎩 lgao@lgao gaol.github.io]$ conda info --envs
+# conda environments:
+#
+base                     /home/lgao/anaconda3
+face_gui                 /home/lgao/anaconda3/envs/face_gui
+intro-to-mongodb         /home/lgao/anaconda3/envs/intro-to-mongodb
+mflix                    /home/lgao/anaconda3/envs/mflix
+python27              *  /home/lgao/anaconda3/envs/python27</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>More cheat sheet on <a href="https://kapeli.com/cheat_sheets/Conda.docset/Contents/Resources/Documents/index">Conda Cheat Sheet by Kapeli</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js" id="MathJax-script"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [
+          ['$', '$'], ['\\(', '\\)']
+        ],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+      <p>Be a good man and enjoy the life!</p>
+    
+    
+      
+        © 2020
+      
+       双木为琳 
+    
+    
+       · 
+      技术支持 <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+    
+
+  </body>
+
+</html>
