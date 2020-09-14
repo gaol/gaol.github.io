@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://ihomeland.cn/zh-cn/categories/</loc>
-    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,18 +18,28 @@
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/conda/</loc>
-    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
+    <loc>https://ihomeland.cn/zh-cn/categories/fedora/</loc>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
-    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
+    <loc>https://ihomeland.cn/zh-cn/posts/fedora_tsinghua_mirror/</loc>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/linux/</loc>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/mirror/</loc>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://ihomeland.cn/zh-cn/posts/</loc>
-    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
+    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -40,6 +50,16 @@
                 hreflang="zh-cn"
                 href="https://ihomeland.cn/zh-cn/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/conda/</loc>
+    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
+    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
   </url>
   
   <url>
