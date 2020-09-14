@@ -17,6 +17,8 @@ v1.0, 2020-09-14: initial version
 
 == 配置 Fedora 的华镜像
 
+TIP: 以下在 Fedora 32 版本上测试通过
+
 * 备份原有的 repo
 
 [source, java, indent=1]
@@ -80,6 +82,14 @@ gpgcheck=1
 metadata_expire=6h
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
 skip_if_unavailable=False
+----
+
+* 创建本地缓存并且升级
+
+[source, java, indent=1]
+----
+dnf makecache
+dnf update
 ----
 
 More Info, please go to: https://mirrors.tuna.tsinghua.edu.cn/help/fedora/
