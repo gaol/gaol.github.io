@@ -64,3 +64,125 @@ bin/standalone.sh -c standalone-ha.xml -Djboss.node.name=node1
 * 使用 `ejb:` 进行 EJB lookup 意味着都是 `remote` 的 ejb。
 
 
+== Arquillian
+
+Arquillian 主要用来进行 integration 测试。 它会先启动一个 container，再部署一个测试应用，然后运行所有的 `@Test` 方法。
+Arquillian 使用 `src/test/resources/arquillian.xml` 文件来找寻 container。
+
+=== Arquillian 针对 WildFly 的两种模式
+
+* managed
+
+示例：
+
+[source, xml, indent=1]
+----
+    <container qualifier="wildfly-managed" default="true">
+        <!-- By default, Arquillian will use the JBOSS_HOME environment variable to find the JBoss EAP installation.
+             If you prefer not to define the JBOSS_HOME environment variable, alternatively you can uncomment the
+             following `jbossHome` property and replace EAP_HOME with the path to your JBoss EAP installation. -->
+        <!--<configuration>
+            <property name="jbossHome">EAP_HOME</property>
+        </configuration> -->
+    </container>
+----
+这里当运行 test 的时候， arquillian 会默认使用 `wildfly-managed` 这个 container，配置里通过 `jbossHome` 来指定本地 WildFly server 的根目录。 也可以通过设置 `$JBOSS_HOME` 这个 environment 来指定。
+
+* remote
+
+示例：
+
+[source, xml, indent=1]
+----
+    <container qualifier="wildfly-remote">
+        <configuration>
+            <property name="managementAddress">localhost</property>
+            <property name="managementPort">9990</property>
+            <property name="username">admin</property>
+            <property name="password">admin</property>
+        </configuration>
+    </container>
+----
+
+这时，我们需要通过 `-Darquillian.launch=wildfly-remote` 指定 container id。 这个 container 的配置是通过 host 和 port 的方式来指定。
+
+[NOTE]
+需要先通过 `bin/add-user.sh -u admin -p admin -s` 给 WildFly 添加 Management 用户。
+
+[source, xml, indent=1]
+----
+mvn clean test -Parq-remote -Darquillian.launch=wildfly-remote
+----
+
+[NOTE]
+这里 `-Parq-remote` 一般把 arquillian 需要的 maven dependencies 定义好：
+
+[source, xml, indent=1]
+----
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests in a remote JBoss EAP instance.
+                 Run with: mvn clean verify -Parq-remote -->
+            <id>arq-remote</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly.arquillian</groupId>
+                    <artifactId>wildfly-arquillian-container-remote</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>${version.failsafe.plugin}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+----
+
+同样的， `arq-managed`:
+[source, xml, indent=1]
+----
+        <profile>
+            <!-- An optional Arquillian testing profile that executes tests in your JBoss EAP instance.
+                 This profile will start a new JBoss EAP instance, and execute the test, shutting it down when done.
+                 Run with: mvn clean verify -Parq-managed -->
+            <id>arq-managed</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.wildfly.arquillian</groupId>
+                    <artifactId>wildfly-arquillian-container-managed</artifactId>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>${version.failsafe.plugin}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+----
+
+

@@ -14,7 +14,7 @@ v1.0, 2020-03-17: initial version
 * I am an open source software engineer
 * I work for Red Hat
 * I work on https://www.wildfly.org[WildFly] and its components.
-* I work on https://vertx.io[Vert.x] community mainly focus on https://github.com/vert-x3/vertx-mail-client[vertx-mail-client] component
+* I work on https://vertx.io[Vert.x] community mainly focus on https://github.com/vert-x3/vertx-mail-client[vertx-mail-client] component, and I have ambitious to take more components in the future.
 
 {empty} +
 {empty} +

@@ -1,0 +1,63 @@
+---
+title: "Future Topics List"
+date: 2020-04-28T20:53:39+08:00
+draft: true
+---
+= Future Topics List
+双木为琳 <aoingl@gmail.com>
+v1.0, 2020-04-28: initial version
+
+== Finished Topics
+
+> This will always be kept as draft, just for keeping status of topics
+
+* JBoss Notes
+* Github Actions
+* Github authentication
+
+== Vertx Topics List
+
+* Vertx Options
+** Net related options
+** Client / Server options
+* Vertx Thread Model
+* Vertx EventBus
+* Vertx Metrics
+* Vertx
+* Vertx app in Openshift/Kubernates
+* Vertx Mail Client
+** How it relates to delivery industry in current world
+* Vertx operator for Openshift
+* Vertx redis client
+* Vertx Tcp Eventbug bridge
+* How upgrade to SSL work
+
+== MicroProfile Topics List
+* MicroProfile in WildFly
+* MicroProfile health check
+** Smallrye implementation
+
+== Quarkus Topics List
+* How does quarkus work on the graalvm
+
+
+== WildFly/EAP Topics List
+
+* Naming system
+* EJB Invocation evolution
+** From EAP 6.4 to EAP 7.3
+* JMX in EAP 7
+* Data source definitions
+* JBoss Module dependencies
+** exports / service / import
+** permission defines for security manager
+* Use Undertow as load banlancer
+* Configuring distributed cache manager for the clustered web sessions.
+** back store can be a postgresql db server
+** or it can be a redis?
+
+
+
+
+
+

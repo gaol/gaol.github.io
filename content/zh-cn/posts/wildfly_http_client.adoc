@@ -1,0 +1,126 @@
+---
+title: "WildFly Http Client"
+date: 2021-07-01T17:12:06+08:00
+draft: false
+categories:
+  - notes
+  - wildfly
+  - http
+  - client
+---
+= WildFly Http Client
+Lin Gao <aoingl@gmail.com>
+v1.0, 2021-06-28: initial version
+:source-highlighter: rouge
+:rouge-style: base16.dark
+:icons: font
+:toc:
+
+https://github.com/wildfly/wildfly-http-client[WildFly Http Client] 是 WildFly / JBoss EAP 中通过 HTTP transport 的方式调用远程 server 端服务的组件。它包含：
+
+* wildfly-http-ejb-client               # for remote EJB call
+* wildfly-http-naming-client            # for remote JNDI call
+* wildfly-http-transaction-client       # for remote transaction call
+
+默认通过 `http://localhost:8080/wildfly-services` 的接口调用。
+
+== 服务器端配置
+
+服务器端需要保证 `undertow` subsystem 下的 `http-invoker`配置好，检查 `standalone.xml`：
+
+[source, xml, indent=1]
+----
+        <subsystem xmlns="urn:jboss:domain:undertow:12.0" default-server="default-server" default-virtual-host="default-host" d
+efault-servlet-container="default" default-security-domain="other" statistics-enabled="${wildfly.undertow.statistics-enabled:${
+wildfly.statistics-enabled:false}}">
+            <buffer-cache name="default"/>
+            <server name="default-server">
+                <http-listener name="default" socket-binding="http" redirect-socket="https" enable-http2="true"/>
+                <https-listener name="https" socket-binding="https" security-realm="ApplicationRealm" enable-http2="true"/>
+                <host name="default-host" alias="localhost">
+                    <location name="/" handler="welcome-content"/>
+                    <http-invoker security-realm="ApplicationRealm"/>
+                </host>
+            </server>
+            <servlet-container name="default">
+                <jsp-config/>
+                <websockets/>
+            </servlet-container>
+            <handlers>
+                <file name="welcome-content" path="${jboss.home.dir}/welcome-content"/>
+            </handlers>
+        </subsystem>
+----
+
+也可以使用 JBoss CLI 的方式验证：
+
+[source, shell script, indent=1]
+----
+[standalone@localhost:9990 /] /subsystem=undertow/server=default-server/host=default-host/setting=http-invoker:read-resource()
+{
+    "outcome" => "success",
+    "result" => {
+        "http-authentication-factory" => undefined,
+        "path" => "wildfly-services",
+        "security-realm" => "ApplicationRealm"
+    }
+}
+----
+
+== 客户端代码以及配置
+
+服务器端配置好以后，客户端使用如下代码通过 HTTP Transport 调用：
+
+[source, java, indent=1]
+----
+        final Hashtable<String, String> jndiProperties = new Hashtable<>();
+        jndiProperties.put(Context.INITIAL_CONTEXT_FACTORY, "org.wildfly.naming.client.WildFlyInitialContextFactory");
+        jndiProperties.put(Context.PROVIDER_URL,"http://localhost:8080/wildfly-services");
+        final Context context = new InitialContext(jndiProperties);
+        SecuredEJBRemote reference = (SecuredEJBRemote) context.lookup("ejb:/ejb-security/SecuredEJB!"
+                + SecuredEJBRemote.class.getName());
+----
+
+在客户端的 `wildfly-config.xml` 中需要有以下配置：
+
+[source, xml, indent=1]
+----
+<configuration>
+    <authentication-client xmlns="urn:elytron:1.0">
+        <authentication-rules>
+            <rule use-configuration="default"/>
+        </authentication-rules>
+        <authentication-configurations>
+            <configuration name="default">
+                <set-user-name name="quickstartUser"/>
+                <credentials>
+                    <clear-password password="quickstartPwd1!"/>
+                </credentials>
+            </configuration>
+        </authentication-configurations>
+    </authentication-client>
+</configuration>
+----
+
+客户端启动的时候，根据 `wildfly-config.xml` 里定义的 auth 信息进行与服务器端的交互认证。
+
+=== 服务器端认证配置
+
+当需要认证时，需要在服务器端做以下配置：
+
+[source, shell script, indent=1]
+----
+
+batch
+
+# Create http authentication factory that uses DIGEST-MD5 authentication
+/subsystem=elytron/http-authentication-factory=app-http-authentication:add(security-domain=ApplicationDomain,http-server-mechanism-factory=global,mechanism-configurations=[{mechanism-name="DIGEST-MD5",mechanism-realm-configurations=[{realm-name="ApplicationRealm"}]}])
+
+# Configure Undertow to use our http authentication factory for authentication
+/subsystem=undertow/server=default-server/host=default-host/setting=http-invoker:undefine-attribute(name=security-realm)
+/subsystem=undertow/server=default-server/host=default-host/setting=http-invoker:write-attribute(name=http-authentication-factory, value=app-http-authentication)
+run-batch
+reload
+
+----
+
