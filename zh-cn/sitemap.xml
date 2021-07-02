@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://ihomeland.cn/zh-cn/categories/</loc>
-    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,6 +15,46 @@
                 hreflang="zh-cn"
                 href="https://ihomeland.cn/zh-cn/categories/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/client/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/http/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/posts/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://ihomeland.cn/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="https://ihomeland.cn/zh-cn/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/categories/wildfly/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ihomeland.cn/zh-cn/posts/wildfly_http_client/</loc>
+    <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
@@ -38,27 +78,7 @@
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/</loc>
-    <lastmod>2020-09-14T11:12:06+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://ihomeland.cn/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/posts/"
-                />
-  </url>
-  
-  <url>
     <loc>https://ihomeland.cn/zh-cn/categories/conda/</loc>
-    <lastmod>2020-09-14T10:12:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
     <lastmod>2020-09-14T10:12:06+08:00</lastmod>
   </url>
   
@@ -99,11 +119,6 @@
   
   <url>
     <loc>https://ihomeland.cn/zh-cn/categories/totp/</loc>
-    <lastmod>2020-03-25T17:12:06+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/wildfly/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
