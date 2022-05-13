@@ -186,3 +186,29 @@ mvn clean test -Parq-remote -Darquillian.launch=wildfly-remote
 ----
 
 
+== JNDI Lookup
+
+The Jakarta EE platform specification defines the following JNDI contexts:
+
+* `java:comp` - The namespace is scoped to the current component (i.e. EJB)
+
+* `java:module` - Scoped to the current module
+
+* `java:app` - Scoped to the current application
+
+* `java:global` - Scoped to the application server
+
+In addition to the standard namespaces, WildFly also provides the following two global namespaces:
+
+* `java:jboss`
+
+* `java:/`
+
+> Only entries within the `java:jboss/exported` context are accessible over remote JNDI.
+
+> For web deployments `java:comp` is aliased to `java:module`, so EJB’s deployed in a war do not have their own comp namespace.
+
+=== JNDI binding
+
+* hen using CLI to specify a new JNDI name `java:` can be ignored.
+
