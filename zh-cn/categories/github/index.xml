@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>github on Lin&#39; 博客</title>
-    <link>https://ihomeland.cn/zh-cn/categories/github/</link>
+    <link>https://gaol.github.io/zh-cn/categories/github/</link>
     <description>Recent content in github on Lin&#39; 博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 25 Mar 2020 17:12:06 +0800</lastBuildDate>
     
-	<atom:link href="https://ihomeland.cn/zh-cn/categories/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gaol.github.io/zh-cn/categories/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Github two-factor 认证</title>
-      <link>https://ihomeland.cn/zh-cn/posts/github-authentication/</link>
+      <link>https://gaol.github.io/zh-cn/posts/github-authentication/</link>
       <pubDate>Wed, 25 Mar 2020 17:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/github-authentication/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/github-authentication/</guid>
       <description>笔者认为 Two-Factor（2FA） 认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。 Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。
  当打开 Github 的 2FA, 客户端就不再支持通过 Username + Password 的方式进行 pull 和 push.
  需要以下两种方法解决：

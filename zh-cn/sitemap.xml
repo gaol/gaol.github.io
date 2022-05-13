@@ -3,200 +3,200 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/categories/"
+                href="https://gaol.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/categories/"
+                href="https://gaol.github.io/zh-cn/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/client/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/client/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/http/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/http/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/notes/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/notes/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/posts/"
+                href="https://gaol.github.io/en/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/posts/"
+                href="https://gaol.github.io/zh-cn/posts/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/wildfly/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/wildfly/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/wildfly_http_client/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/wildfly_http_client/</loc>
     <lastmod>2021-07-01T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/fedora/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/fedora/</loc>
     <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/fedora_tsinghua_mirror/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/fedora_tsinghua_mirror/</loc>
     <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/linux/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/linux/</loc>
     <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/mirror/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/mirror/</loc>
     <lastmod>2020-09-14T11:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/conda/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/conda/</loc>
     <lastmod>2020-09-14T10:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/python/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/python/</loc>
     <lastmod>2020-09-14T10:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/python-notes/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/python-notes/</loc>
     <lastmod>2020-09-14T10:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/github/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/github/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/categories/github/"
+                href="https://gaol.github.io/en/categories/github/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/categories/github/"
+                href="https://gaol.github.io/zh-cn/categories/github/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/github-authentication/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/github-authentication/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/jboss/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/jboss/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/totp/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/totp/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/jboss-notes/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/jboss-notes/</loc>
     <lastmod>2020-03-25T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/dlna/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/dlna/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/categories/smarthome/</loc>
+    <loc>https://gaol.github.io/zh-cn/categories/smarthome/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</loc>
+    <loc>https://gaol.github.io/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</loc>
     <lastmod>2020-03-17T17:12:06+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/</loc>
+    <loc>https://gaol.github.io/zh-cn/</loc>
     <lastmod>2020-03-17T15:21:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/"
+                href="https://gaol.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/"
+                href="https://gaol.github.io/zh-cn/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/about/</loc>
+    <loc>https://gaol.github.io/zh-cn/about/</loc>
     <lastmod>2020-03-17T15:21:13+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/about/"
+                href="https://gaol.github.io/en/about/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/about/"
+                href="https://gaol.github.io/zh-cn/about/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/series/</loc>
+    <loc>https://gaol.github.io/zh-cn/series/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/series/"
+                href="https://gaol.github.io/en/series/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/series/"
+                href="https://gaol.github.io/zh-cn/series/"
                 />
   </url>
   
   <url>
-    <loc>https://ihomeland.cn/zh-cn/tags/</loc>
+    <loc>https://gaol.github.io/zh-cn/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://ihomeland.cn/en/tags/"
+                href="https://gaol.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="https://ihomeland.cn/zh-cn/tags/"
+                href="https://gaol.github.io/zh-cn/tags/"
                 />
   </url>
   

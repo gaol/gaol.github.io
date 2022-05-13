@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Lin&#39; 博客</title>
-    <link>https://ihomeland.cn/zh-cn/posts/</link>
+    <link>https://gaol.github.io/zh-cn/posts/</link>
     <description>Recent content in Posts on Lin&#39; 博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Thu, 01 Jul 2021 17:12:06 +0800</lastBuildDate>
     
-	<atom:link href="https://ihomeland.cn/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://gaol.github.io/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>WildFly Http Client</title>
-      <link>https://ihomeland.cn/zh-cn/posts/wildfly_http_client/</link>
+      <link>https://gaol.github.io/zh-cn/posts/wildfly_http_client/</link>
       <pubDate>Thu, 01 Jul 2021 17:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/wildfly_http_client/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/wildfly_http_client/</guid>
       <description>Table of Contents 服务器端配置 客户端代码以及配置 服务器端认证配置     WildFly Http Client 是 WildFly / JBoss EAP 中通过 HTTP transport 的方式调用远程 server 端服务的组件。它包含：
    wildfly-http-ejb-client # for remote EJB call
   wildfly-http-naming-client # for remote JNDI call
@@ -28,10 +28,10 @@
     
     <item>
       <title>Fedora Tsinghua Mirror</title>
-      <link>https://ihomeland.cn/zh-cn/posts/fedora_tsinghua_mirror/</link>
+      <link>https://gaol.github.io/zh-cn/posts/fedora_tsinghua_mirror/</link>
       <pubDate>Mon, 14 Sep 2020 11:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/fedora_tsinghua_mirror/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/fedora_tsinghua_mirror/</guid>
       <description>Table of Contents 配置 Fedora 的华镜像   配置 Fedora 的华镜像     以下在 Fedora 32 版本上测试通过       备份原有的 repo
    mv /etc/yum.repos.d/fedora.repo /etc/yum.repos.d/fedora.repo.backup mv /etc/yum.repos.d/fedora-updates.repo /etc/yum.repos.d/fedora-updates.repo.backup     创建 清华 的 repo
    /etc/yum.repos.d/fedora.repo: [fedora] name=Fedora $releasever - $basearch failovermethod=priority baseurl=https://mirrors.tuna.tsinghua.edu.cn/fedora/releases/$releasever/Everything/$basearch/os/ metadata_expire=28d gpgcheck=1 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch skip_if_unavailable=False   /etc/yum.repos.d/fedora-updates.repo: [updates] name=Fedora $releasever - $basearch - Updates failovermethod=priority baseurl=https://mirrors.</description>
@@ -39,10 +39,10 @@
     
     <item>
       <title>Python Notes</title>
-      <link>https://ihomeland.cn/zh-cn/posts/python-notes/</link>
+      <link>https://gaol.github.io/zh-cn/posts/python-notes/</link>
       <pubDate>Mon, 14 Sep 2020 10:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/python-notes/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/python-notes/</guid>
       <description>Table of Contents 配置 Python3 与 Python2.7 并存 使用 Anaconda 管理开发环境     本文列出一些 Python 相关的 notes，尽量不停的更新：
    配置 Python3 与 Python2.7 并存 虽然 Python 已经到了 3 的时代， Python2.7 还是有很多的用户和类库。很多时候我们会需要用到不同版本的 Python。
  使用 Anaconda 管理开发环境   从 Anaconda 官网 下载安装 Anaconda Individual Version.
@@ -52,10 +52,10 @@
     
     <item>
       <title>Github two-factor 认证</title>
-      <link>https://ihomeland.cn/zh-cn/posts/github-authentication/</link>
+      <link>https://gaol.github.io/zh-cn/posts/github-authentication/</link>
       <pubDate>Wed, 25 Mar 2020 17:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/github-authentication/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/github-authentication/</guid>
       <description>笔者认为 Two-Factor（2FA） 认证是目前最为安全的认证方法。 Github 和 Google 都提供了这两种方式的登录和认证。 Github 提供的是 Time-based One Time Password(TOTP) 类型的 2FA。
  当打开 Github 的 2FA, 客户端就不再支持通过 Username + Password 的方式进行 pull 和 push.
  需要以下两种方法解决：
@@ -65,10 +65,10 @@
     
     <item>
       <title>WildFly Notes</title>
-      <link>https://ihomeland.cn/zh-cn/posts/jboss-notes/</link>
+      <link>https://gaol.github.io/zh-cn/posts/jboss-notes/</link>
       <pubDate>Wed, 25 Mar 2020 17:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/jboss-notes/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/jboss-notes/</guid>
       <description>Table of Contents 配置数据库 配置数据库的 &amp;lt;connection-url&amp;gt;   集群 指定集群的 Node 名称   EJB EJB lookup   Arquillian Arquillian 针对 WildFly 的两种模式   JNDI Lookup JNDI binding     本文列出一些 WildFly 配置过程中的注意事项，会不停的更新：
    配置数据库 WildFly 的数据库使用 JCA 规范，在 Wildfly /subsystem=datasources/ 下。 推荐使用 DataSource 获取数据库连接，因为可以有更好的连接池和分布式事务的支持。
  配置数据库的 &amp;lt;connection-url&amp;gt; 很多时候系统管理员习惯使用老式的 connection-url 进行数据库配置，需要注意以下错误：
@@ -77,10 +77,10 @@
     
     <item>
       <title>使用 Raspberry Pi 配置 DLNA server</title>
-      <link>https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</link>
+      <link>https://gaol.github.io/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</link>
       <pubDate>Tue, 17 Mar 2020 17:12:06 +0800</pubDate>
       
-      <guid>https://ihomeland.cn/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</guid>
+      <guid>https://gaol.github.io/zh-cn/posts/set-up-dlna-server-in-raspberrypi/</guid>
       <description>家里有一款老版本的 Raspberry Pi, 已经闲置在布满灰尘的角落里多年。 今日忽然心血来潮，心想不如搭建一个的 DLNA server 以便用于视频，音乐，以及照片的分享。
    什么是 DLNA 呢 DLNA 的全称为： Digital Living Network Alliance. 由 Sony 在 2003 年提出，旨在使得家庭网络中的设备可以共享媒体数据。
  DLNA 设备分为 Server 端 和 Client 端。 两者通过 WiFi 相连，所以需要把两种设备放到一个局域网内。

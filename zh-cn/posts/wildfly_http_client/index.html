@@ -28,20 +28,20 @@
    服务器端配置 服务器端需要保证 undertow subsystem 下的 http-invoker`配置好，检查 `standalone.xml：
  &lt;subsystem xmlns=&#34;urn:jboss:domain:undertow:12.0&#34; default-server=&#34;default-server&#34; default-virtual-host=&#34;default-host&#34; d efault-servlet-container=&#34;" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ihomeland.cn/zh-cn/posts/wildfly_http_client/" />
+<meta property="og:url" content="https://gaol.github.io/zh-cn/posts/wildfly_http_client/" />
 <meta property="article:published_time" content="2021-07-01T17:12:06+08:00" />
 <meta property="article:modified_time" content="2021-07-01T17:12:06+08:00" /><meta property="og:site_name" content="Lin&#39; 博客" />
 
 
     
-      <base href="https://ihomeland.cn/zh-cn/posts/wildfly_http_client/">
+      <base href="https://gaol.github.io/zh-cn/posts/wildfly_http_client/">
     
     <title>
   WildFly Http Client · Lin&#39; 博客
 </title>
 
     
-      <link rel="canonical" href="https://ihomeland.cn/zh-cn/posts/wildfly_http_client/">
+      <link rel="canonical" href="https://gaol.github.io/zh-cn/posts/wildfly_http_client/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -51,7 +51,7 @@
     
       
       
-      <link rel="stylesheet" href="https://ihomeland.cn/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="https://gaol.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -60,24 +60,24 @@
       
         
         
-        <link rel="stylesheet" href="https://ihomeland.cn/css/coder-dark.min.83a2010dac9f59f943b3004cd6c4f230507ad036da635d3621401d42ec4e2835.css" integrity="sha256-g6IBDayfWflDswBM1sTyMFB60DbaY102IUAdQuxOKDU=" crossorigin="anonymous" media="screen" />
+        <link rel="stylesheet" href="https://gaol.github.io/css/coder-dark.min.83a2010dac9f59f943b3004cd6c4f230507ad036da635d3621401d42ec4e2835.css" integrity="sha256-g6IBDayfWflDswBM1sTyMFB60DbaY102IUAdQuxOKDU=" crossorigin="anonymous" media="screen" />
       
     
 
     
-      <link rel="stylesheet" href="https://ihomeland.cn/css/base16.dark.css" />
+      <link rel="stylesheet" href="https://gaol.github.io/css/base16.dark.css" />
     
-      <link rel="stylesheet" href="https://ihomeland.cn/css/prism.css" />
+      <link rel="stylesheet" href="https://gaol.github.io/css/prism.css" />
     
-      <link rel="stylesheet" href="https://ihomeland.cn/css/main.css" />
-    
-
+      <link rel="stylesheet" href="https://gaol.github.io/css/main.css" />
     
 
     
 
-    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://ihomeland.cn/images/favicon-16x16.png" sizes="16x16">
+    
+
+    <link rel="icon" type="image/png" href="https://gaol.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://gaol.github.io/images/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.67.0" />
   </head>
@@ -93,10 +93,10 @@
     <div class="header">
       <div class="banner">
         
-        <img src="https://ihomeland.cn/images/avatar.svg"
+        <img src="https://gaol.github.io/images/avatar.svg"
              alt="gravatar" class="headerImg">
         
-        <a class="navigation-title" href="https://ihomeland.cn/zh-cn" style="padding-left: 10px;">
+        <a class="navigation-title" href="https://gaol.github.io/zh-cn" style="padding-left: 10px;">
           Lin&#39; 博客
         </a>
       </div>
@@ -106,11 +106,11 @@
             
             
             <li class="navigation-item">
-              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/posts">博客</a>
+              <a class="navigation-link" href="https://gaol.github.io/zh-cn/posts">博客</a>
             </li>
             
             <li class="navigation-item">
-              <a class="navigation-link" href="https://ihomeland.cn/zh-cn/about">关于</a>
+              <a class="navigation-link" href="https://gaol.github.io/zh-cn/about">关于</a>
             </li>
             
             
@@ -128,7 +128,7 @@
             
             
             <li class="navigation-item">
-              <a href="https://ihomeland.cn/en/">English</a>
+              <a href="https://gaol.github.io/en/">English</a>
             </li>
             
             
@@ -195,13 +195,13 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://ihomeland.cn/zh-cn/categories/notes/">notes</a>
+    <a href="https://gaol.github.io/zh-cn/categories/notes/">notes</a>
       <span class="separator">•</span>
-    <a href="https://ihomeland.cn/zh-cn/categories/wildfly/">wildfly</a>
+    <a href="https://gaol.github.io/zh-cn/categories/wildfly/">wildfly</a>
       <span class="separator">•</span>
-    <a href="https://ihomeland.cn/zh-cn/categories/http/">http</a>
+    <a href="https://gaol.github.io/zh-cn/categories/http/">http</a>
       <span class="separator">•</span>
-    <a href="https://ihomeland.cn/zh-cn/categories/client/">client</a></div>
+    <a href="https://gaol.github.io/zh-cn/categories/client/">client</a></div>
 
           
         </div>
