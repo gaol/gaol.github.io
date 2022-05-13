@@ -11,13 +11,13 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="WildFly Notes"/>
-<meta name="twitter:description" content="Table of Contents 配置数据库 配置数据库的 &lt;connection-url&gt;   集群 指定集群的 Node 名称   EJB EJB lookup   Arquillian Arquillian 针对 WildFly 的两种模式     本文列出一些 WildFly 配置过程中的注意事项，会不停的更新：
+<meta name="twitter:description" content="Table of Contents 配置数据库 配置数据库的 &lt;connection-url&gt;   集群 指定集群的 Node 名称   EJB EJB lookup   Arquillian Arquillian 针对 WildFly 的两种模式   JNDI Lookup JNDI binding     本文列出一些 WildFly 配置过程中的注意事项，会不停的更新：
    配置数据库 WildFly 的数据库使用 JCA 规范，在 Wildfly /subsystem=datasources/ 下。 推荐使用 DataSource 获取数据库连接，因为可以有更好的连接池和分布式事务的支持。
  配置数据库的 &lt;connection-url&gt; 很多时候系统管理员习惯使用老式的 connection-url 进行数据库配置，需要注意以下错误：
  Unexpected character &#39;=&#39; (code 61); expected a semi-colon   这是因为 &amp; 要使用 &amp; 来 escapse，否则 xml 解析就会以为这是个 entity，尝试去解析。"/>
 
     <meta property="og:title" content="WildFly Notes" />
-<meta property="og:description" content="Table of Contents 配置数据库 配置数据库的 &lt;connection-url&gt;   集群 指定集群的 Node 名称   EJB EJB lookup   Arquillian Arquillian 针对 WildFly 的两种模式     本文列出一些 WildFly 配置过程中的注意事项，会不停的更新：
+<meta property="og:description" content="Table of Contents 配置数据库 配置数据库的 &lt;connection-url&gt;   集群 指定集群的 Node 名称   EJB EJB lookup   Arquillian Arquillian 针对 WildFly 的两种模式   JNDI Lookup JNDI binding     本文列出一些 WildFly 配置过程中的注意事项，会不停的更新：
    配置数据库 WildFly 的数据库使用 JCA 规范，在 Wildfly /subsystem=datasources/ 下。 推荐使用 DataSource 获取数据库连接，因为可以有更好的连接池和分布式事务的支持。
  配置数据库的 &lt;connection-url&gt; 很多时候系统管理员习惯使用老式的 connection-url 进行数据库配置，需要注意以下错误：
  Unexpected character &#39;=&#39; (code 61); expected a semi-colon   这是因为 &amp; 要使用 &amp; 来 escapse，否则 xml 解析就会以为这是个 entity，尝试去解析。" />
@@ -184,7 +184,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              2 分钟阅读时间
+              3 分钟阅读时间
             </span>
           </div>
           <div class="categories">
@@ -222,6 +222,11 @@
 <li><a href="#_arquillian">Arquillian</a>
 <ul class="sectlevel2">
 <li><a href="#_arquillian_针对_wildfly_的两种模式">Arquillian 针对 WildFly 的两种模式</a></li>
+</ul>
+</li>
+<li><a href="#_jndi_lookup">JNDI Lookup</a>
+<ul class="sectlevel2">
+<li><a href="#_jndi_binding">JNDI binding</a></li>
 </ul>
 </li>
 </ul>
@@ -474,6 +479,67 @@ Arquillian 使用 <code>src/test/resources/arquillian.xml</code> 文件来找寻
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_jndi_lookup">JNDI Lookup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jakarta EE platform specification defines the following JNDI contexts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java:comp</code> - The namespace is scoped to the current component (i.e. EJB)</p>
+</li>
+<li>
+<p><code>java:module</code> - Scoped to the current module</p>
+</li>
+<li>
+<p><code>java:app</code> - Scoped to the current application</p>
+</li>
+<li>
+<p><code>java:global</code> - Scoped to the application server</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition to the standard namespaces, WildFly also provides the following two global namespaces:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>java:jboss</code></p>
+</li>
+<li>
+<p><code>java:/</code></p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Only entries within the <code>java:jboss/exported</code> context are accessible over remote JNDI.</p>
+</div>
+</blockquote>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>For web deployments <code>java:comp</code> is aliased to <code>java:module</code>, so EJB’s deployed in a war do not have their own comp namespace.</p>
+</div>
+</blockquote>
+</div>
+<div class="sect2">
+<h3 id="_jndi_binding">JNDI binding</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>hen using CLI to specify a new JNDI name <code>java:</code> can be ignored.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 
       </div>
 
@@ -516,7 +582,7 @@ Arquillian 使用 <code>src/test/resources/arquillian.xml</code> 文件来找寻
     
     
       
-        © 2021
+        © 2022
       
        双木为琳 
     
